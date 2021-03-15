@@ -88,14 +88,14 @@
 	Residuation theory concerns the study of partially ordered algebraic structures, most often just monoids,
 	equipped with a weak inverse for the monoidal operator.
 	%
-	One of its area of application has been constraint programming, whose 
+	One of its area of application has been Constraint Programming, whose 
 	key requirement is the presence of an aggregator operator for combining preferences.
 	%
 	Given a residuated monoid of preferences, the paper shows how to build a new residuated monoid 
 	of (possibly infinite) tuples based on the lexicographic order. 
 \end{abstract}
         \begin{keyword}
-        	Residuation theory, Soft constraints, Lexicographic orders. %\sep Bucket Elimination.
+        	Residuation theory,  Lexicographic orders. %\sep Bucket Elimination.
         \end{keyword}
     \end{frontmatter}
 
@@ -111,14 +111,14 @@ equipped with an operator that behaves as a weak inverse to the monoidal one, wi
 %the approximated solution of inequalities~\cite{resbook}. 
 %
 %Related to the latter, o
-One of the recent area of application of residuation theory is constraint programming. 
+One of the recent area of application of residuation theory is Constraint Programming. 
 %
-Roughly, a soft constraint satisfaction problem
-%or (\emph{S})\emph{CSP} for short,  
+Roughly, a \emph{Soft Constraint Satisfaction Problem}
+(\emph{SCSP}) 
 is given by a relation on a set of variables and a preference 
 score to each assignment of the variables~\cite{jacm97,schiex}. 
 %
-The key requirement is the presence of an aggregator operator for combining preferences, making their set a monoid: a large body 
+A key requirement is the presence of an aggregator operator for combining preferences, making their set a monoid: a large body 
 of work has been devoted to enrich such a structure, guaranteeing that resolution techniques are generalised by 
 a parametric formalism for designing metrics and algorithms.
 %
@@ -129,7 +129,7 @@ a parametric formalism for designing metrics and algorithms.
 The relevance of residuated monoids for local consistency algorithms, where in order ``move'' costs they must be ``subtracted'' somewhere and ``added'' elsewhere,
  has been spotted early on~\cite{residuation1,resCS}, and various extensions  has been proposed~\cite{ipl}.
  Also, residuated monoids found applications in languages based on the Linda paradigm, such as 
-soft concurrent constraint programming,  where a process may be ``telling'' and ``asking'' constraints to a centralised store~\cite{labelled}. 
+soft concurrent constraint programming,  where a process  ``tells'' and ``asks'' constraints to a centralised store~\cite{labelled}. 
 %We consider lexicographic orders, as used in contexts with multi-objective
 %problems. That is, the preference values are obtained by the combination of separate concerns, and the order of the combination matters. 
 %We identify suitable conditions to show how to effectively build 
@@ -423,30 +423,29 @@ and the following folklore fact holds.
 	$\forall a, b \in A.\ a \odiv b = \bigvee \{c \mid b \otimes c \leq a\}$.
 \end{lemma}
 
-We close with a simple lemma relating residuation with the top and the bottom 
-elements of a POM.
-
-\begin{lemma}
-	\label{someProps}
-	Let $\langle A, \leq, \monop, \odiv, \1 \rangle$ be a residuated POM. 
-	If it has the bottom element $\bot$, then it also has the top element $\top$and
-	$\forall a \in A.\ a \odiv \bot = \top$.
+%We close with a simple lemma relating residuation with the top and the bottom elements of a POM.
+%
+%\begin{lemma}
+%	\label{someProps}
+%	Let $\langle A, \leq, \monop, \odiv, \1 \rangle$ be a residuated POM. 
+%	If it has the bottom element $\bot$, then it also has the top element $\top$and
+%	$\forall a \in A.\ a \odiv \bot = \top$.
 	%
-	Viceversa, if it has the top element $\top$ then
-	$\forall b \in A.\ \top \odiv b = \top$.
-\end{lemma}
+%	Viceversa, if it has the top element $\top$ then
+%	$\forall b \in A.\ \top \odiv b = \top$.
+%\end{lemma}
 
-\begin{remark}
-	Nothing can be stated for $\bot \odiv a$, since there could be elements that are 
-	$\bot$-divisors: see again the Cartesian product of the CLM  
-	$\langle \mathbb N \cup \{\infty\}, \geq, +, 0 \rangle$ with itself, where 
-	$\langle \infty, 3\rangle  \otimes \langle 4, \infty \rangle = \langle \infty,\infty \rangle$. 
+%\begin{remark}
+%	Nothing can be stated for $\bot \odiv a$, since there could be elements that are 
+%	$\bot$-divisors: see again the Cartesian product of the CLM  
+%	$\langle \mathbb N \cup \{\infty\}, \geq, +, 0 \rangle$ with itself, where 
+%	$\langle \infty, 3\rangle  \otimes \langle 4, \infty \rangle = \langle \infty,\infty \rangle$. 
 	
-	Similarly, nothing can be stated for $a \odiv \top$: see the Cartesian 
-	product of the CLM  
-	$\langle \mathbb N \cup \{\infty\}, \geq, +, 0 \rangle$ with its dual CLM
-	$\langle \mathbb N \cup \{\infty\}, \leq, +, 0 \rangle$.
-\end{remark}
+%	Similarly, nothing can be stated for $a \odiv \top$: see the Cartesian 
+%	product of the CLM  
+%	$\langle \mathbb N \cup \{\infty\}, \geq, +, 0 \rangle$ with its dual CLM
+%	$\langle \mathbb N \cup \{\infty\}, \leq, +, 0 \rangle$.
+%\end{remark}
 
 %(see e.g.~\cite{ecai06} 
 %for a brief survey on residuation for such semirings)
@@ -516,14 +515,16 @@ We now present a simple fact that is needed later on.
 	$X= \{\langle \infty, 3 \rangle, \langle 4, \infty \rangle\} \subseteq C(\mathbb N\times \mathbb N)$,
 	since $\bigvee X  = \langle 3,4 \rangle \not \in C(\mathbb N\times \mathbb N)$.
 	%
-	Neither is $C(\mathbb N\times \mathbb N)$ closed under residuation, as suggested by 
-	Lemma~\ref{someProps}, since the top element is not necessarily collapsing.
+	Neither is $C(\mathbb N\times \mathbb N)$ closed under residuation, 
+	%as suggested by 
+	%Lemma~\ref{someProps}, 
+	since the top element is not necessarily collapsing.
 	Indeed, in $C(\mathbb N\times \mathbb N)$ we have 
 	$\langle \infty, 4 \rangle  \odiv \langle \infty, 3 \rangle = \langle 0,1\rangle$.
 \end{example}
 
 \begin{remark}
-	Note that in an absorptive CLM $A$ we have that $a \odiv b = 1$ 
+	In an absorptive CLM $A$ we have that $a \odiv b = 1$ 
 	whenever $b \leq a$. Hence $C(A)$ is usually not closed under residuation, since 
 	$1$ is cancellative.
 \end{remark}
@@ -698,9 +699,9 @@ Indeed, this can be proved in general for POMs. First, we need some additional d
 	Let $\langle A, \leq, \monop, \odiv, \1 \rangle$
 	be a residuated POM with bottom and $a, b \in Lex_k(A)$. Then 
 		%		\item $\beta(a) = min\{ i \mid a_i \in C(A)\}$
-		{\bf i)} $\gamma(a, b) = min\{ i \mid (a_i \odiv b_i) \in C(A)\}$
+		{\bf i)} $\gamma(a, b) = min\{ i \mid (a_i \odiv b_i) \in C(A)\}$,
 		{\bf ii)} $\delta(a, b) = min\{ i \mid (a_i \odiv b_i) \otimes b_i < a_i\}$,
-	with the convention that the result is $k+1$ whenever the set if empty.
+	with  $k+1$ as result whenever the set is empty.
 \end{definition}
 
 %Recall that if $\langle A, \leq, \monop, \1 \rangle$ be a residuated POM, then 
@@ -784,7 +785,7 @@ for the cases identified by the proposition above.
 		$b_l \otimes c_l = a_l = b_l \otimes (a_l \odiv b_l)$
 		since $l < \delta(a,b)$, hence either a contradiction
 		if $b_l \in I(A)$ or $b_p \otimes c_p = \bot = a_p$ for all $p > l$
-		if $b_l \in C(A)$ and consequently $a_l \in C(A)$.
+		if $b_l \in C(A)$ and consequently $a_l \in C(A)$. \qedhere
 	\end{description}
 \end{proof}
 
@@ -865,7 +866,7 @@ $.
 		$b_l \otimes c_l = a_l = b_l \otimes (a_l \odiv b_l)$, 
 		hence either a contradiction
 		if $b_l \in I(A)$ or $b_p \otimes c_p = \bot = a_p$ for all $p > l$
-		if $b_l \in C(A)$ and consequently $a_l \in C(A)$.
+		if $b_l \in C(A)$ and consequently $a_l \in C(A)$. \qedhere
 	\end{description}
 \end{proof}
 
@@ -879,7 +880,7 @@ if $\top \in I(A)$, and with $\top \bot^{n -1}$ otherwise.
 	be a residuated POM with bottom element $\bot$ and $a, b \in Lex_k(A)$.
 	If $\delta(a,b) = \gamma(a,b) \leq k$ or $ \gamma(a,b) < \delta(a,b)$
 	then their residuation $a \odiv_k b$ 
-	in $Lex_k(A)$ exists and it is given by
+	in $Lex_k(A)$ exists: it is given by
 	$(a_1 \odiv b_1) \ldots  (a_{\gamma(a, b)}  \odiv b_{\gamma(a, b)}) 
 	\bot^{k - \gamma(a, b)}$.
 \end{proposition}
@@ -935,7 +936,7 @@ if $\top \in I(A)$, and with $\top \bot^{n -1}$ otherwise.
 		$b_l \otimes (a_l \odiv b_l) \leq a_l  = b_l \otimes c_l \leq b_l \otimes (a_l \odiv b_l)$
 		since $l \leq \delta(a,b)$, hence either a contradiction
 		if $b_l \in I(A)$ or $b_p \otimes c_p = \bot = a_p$ for all $p > l$
-		if $b_l \in C(A)$ and consequently $a_l \in C(A)$.
+		if $b_l \in C(A)$ and consequently $a_l \in C(A)$. \qedhere
 	\end{description}
 \end{proof}
 
@@ -1064,10 +1065,13 @@ if $\top \in I(A)$, and  $\top \bot^\omega$ otherwise.
 
 
 
-\section{Conclusions and Future Works}\label{sec:conclusion}
-In this paper we considered a formal framework for soft CSP based on a residuated monoid of partially ordered preferences. 
-This allows for using the classical solving algorithms that need some preference removal, as for instance arc consistency where values need to be moved 
-from binary to unary constraints, or for proving a cost estimation to be used during the search for solutions, as for instance branch-and-bound algorithms.
+\section{Conclusions}\label{sec:conclusion}
+In this paper we considered a formal framework for  SCSPs based on a residuated monoid of partially ordered preferences.  More specifically, the framework is dedicated to lexicographic orders.
+Similar valued structures in the literature, such as pioneering ones as \cite{jacm97,schiex}, cannot straightforwardly deal with preferences managed as lexicographic orders, while successive proposals can~\cite{GadducciHMW13,valuation}. This work fills the gap by extending residuation~\cite{residuation1} also to such a class of preferences. This allows for using the classical solving algorithms that need some preference removal, as for instance arc consistency where values need to be moved 
+from binary to unary constraints, or for proving a cost estimation to be used during the search for solutions, as for instance branch-and-bound algorithms. 
+
+In the future we plan to design specific heuristics to improve the solution of SCSPs based on such orders. 
+
 % (see Section~\ref{sec:bucket}). 
 %
 %The contribution of this paper is twofold. On the one side, we proved the adequacy of the formalism for modelling lexicographic orders. 
