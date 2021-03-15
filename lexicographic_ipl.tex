@@ -343,7 +343,7 @@ In the following, we will sometimes write $a \otimes X$ for the set  $\{a \monop
 	in the soft constraint jargon~\cite{jacm97}.
 	Together with monotonicity, imposing $\1$ to coincide with $\top$ means 
 	that preferences are negative (i.e., $a \leq \1$ for all $a \in A$).
-	Distributive CLMs are known in the literature as \emph{quantales}~\cite{quantales}.
+	Distributive CLMs are also known as \emph{quantales}~\cite{quantales}.
 \end{remark}
 
 \begin{remark}
@@ -523,7 +523,7 @@ We now present a simple fact that is needed later on.
 \end{example}
 
 \begin{remark}
-	Note that in an absorptive CLM $A$ we have that $a \odiv b = 1$ 
+	In an absorptive CLM $A$ we have that $a \odiv b = 1$ 
 	whenever $b \leq a$. Hence $C(A)$ is usually not closed under residuation, since 
 	$1$ is cancellative.
 \end{remark}
@@ -624,12 +624,12 @@ We can provide an alternative definition for such POMs.
 	Then $Lex_{k+1}(A) = \bigcup_{i \leq k}I(A)^i A \{\bot\}^{k-i}$ for all $k$.
 \end{lemma}
 \begin{proof}
-	The proof goes by induction on $k$. For $k = 0$ it is obvious.
-	Let assume it to be true by induction for $k = n$, that is,
+	The proof is by induction on $k$. For $k = 0$ it is obvious.
+	Let us assume it true for $k = n$, that is,
 	$Lex_{n+1}(A) = \bigcup_{i \leq n}I(A)^i A \{\bot\}^{n-i}$ .
 	Now, 
 	$Lex_{n+2}(A) =  I(A) Lex_{n+1}(A) \cup C(A) \{\bot\}^{n+1} =
-	\bigcup_{i \leq n}I(A)^{i+1} A \{\bot\}^{n-i} \cup C(A) \{\bot\}^{n+1} =
+	\bigcup_{i \leq n}I(A)^{i+1} A \{\bot\}^{n-i} \cup C(A) \{\bot\}^{n+1} = \newline
 	\bigcup_{i \leq n+1}I(A)^{i} A \{\bot\}^{n+1-i}$
 	and we are done, where the latter equality holds since
 	$I(A)\{\bot\}^{n+1} \in \bigcup_{i \leq n}I(A)^{i+1} A \{\bot\}^{n-i}$
@@ -645,8 +645,7 @@ generalisation for a set $X \subseteq A^k$, noting that $a_1 = a_{\mid 1}$.
 	Then so is $\langle Lex_k(A), \leq_k, \monop^k, \1^k \rangle$ for all $k$.
 \end{theorem}
 \begin{proof}
-	As a first step, we define the LUB $\bigvee X$ of a set $X \subseteq Lex_k(A)$,
-	given inductively as
+	We inductively define the LUB $\bigvee X$ of a set $X \subseteq Lex_k(A)$ as
 	\begin{itemize}
 		\item $(\bigvee X)_1 = \bigvee X_1 = \bigvee \{ y \mid y \in X_{\mid 1}\}$
 		\item $(\bigvee X)_{i+1} = \bigvee \{ y \mid (\bigvee X)_1 \ldots (\bigvee X)_i y \in X_{\mid i+1}\}$
@@ -677,7 +676,7 @@ generalisation for a set $X \subseteq A^k$, noting that $a_1 = a_{\mid 1}$.
 \end{proof}
 
 \subsection{On lexicographic residuation}
-The fact that $Lex_k(A)$ is a CLM if so is $A$ tells us that $Lex_k(A)$ is
+Since $Lex_k(A)$ is a CLM if so is $A$ then $Lex_k(A)$ is
 also residuated. 
 
 \begin{example}
@@ -698,8 +697,8 @@ Indeed, this can be proved in general for POMs. First, we need some additional d
 	Let $\langle A, \leq, \monop, \odiv, \1 \rangle$
 	be a residuated POM with bottom and $a, b \in Lex_k(A)$. Then 
 		%		\item $\beta(a) = min\{ i \mid a_i \in C(A)\}$
-		{\bf i)} $\gamma(a, b) = min\{ i \mid (a_i \odiv b_i) \in C(A)\}$
-		{\bf ii)} $\delta(a, b) = min\{ i \mid (a_i \odiv b_i) \otimes b_i < a_i\}$,
+		we define $\gamma(a, b) = min\{ i \mid (a_i \odiv b_i) \in C(A)\}$
+		and $\delta(a, b) = min\{ i \mid (a_i \odiv b_i) \otimes b_i < a_i\}$,
 	with the convention that the result is $k+1$ whenever the set if empty.
 \end{definition}
 
