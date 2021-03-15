@@ -85,19 +85,17 @@
 
 
 \begin{abstract} 
-	Residuation theory concerns the study of partially ordered algebraic structures, most often monoids,
+	Residuation theory concerns the study of partially ordered algebraic structures, most often just monoids,
 	equipped with a weak inverse for the monoidal operator.
 	%
 	One of its area of application has been constraint programming, whose 
 	key requirement is the presence of an aggregator operator for combining preferences.
 	%
-	Given a residuated monoid of preferences, the paper first shows how to build a new residuated monoid 
-	of (possibly infinite) tuples, which is based on the lexicographic order. 
+	Given a residuated monoid of preferences, the paper shows how to build a new residuated monoid 
+	of (possibly infinite) tuples based on the lexicographic order. 
 \end{abstract}
-
-
         \begin{keyword}
-        	Residuation theory, Lexicographic orders. %\sep Bucket Elimination.
+        	Residuation theory, Soft constraints, Lexicographic orders. %\sep Bucket Elimination.
         \end{keyword}
     \end{frontmatter}
 
@@ -106,51 +104,53 @@
 
 
 \section{Introduction}\label{sec:intro}
-\emph{Residuation theory}~\cite{residuation} concerns the study of partially ordered algebraic structures, most often just monoids, 
+Residuation theory~\cite{residuation} concerns the study of partially ordered algebraic structures, most often just monoids, 
 equipped with an operator that behaves as a weak inverse to the monoidal one, without the structure being necessarily a group.
 %Such structures have since long be investigated in mathematics and computer science. %Concerning e.g. logics, residuated monoids form the basis for the semantics of substructural logics~\cite{onoETC}.
-As for e.g. discrete event systems such as weighted automata, the use of tropical semirings put forward the adoption of residuals for 
-the approximated solution of inequalities~\cite{resbook}. 
-
+%As for e.g. discrete event systems such as weighted automata, the use of tropical semirings put forward the adoption of residuals for 
+%the approximated solution of inequalities~\cite{resbook}. 
+%
 %Related to the latter, o
-One of the recent area of application of residuation theory has been constraint programming. 
+One of the recent area of application of residuation theory is constraint programming. 
 %
-Roughly, a  \emph{Soft Constraint Satisfaction Problem} 
+Roughly, a soft constraint satisfaction problem
 %or (\emph{S})\emph{CSP} for short,  
-is given by a relation on a set of variables, plus a preference 
-score to each assignment of such variables~\cite{jacm97,schiex}. 
+is given by a relation on a set of variables and a preference 
+score to each assignment of the variables~\cite{jacm97,schiex}. 
 %
-They key requirement is the presence of an aggregator operator for combining preferences, making such a set a monoid, and a large body 
-of work has been devoted to enrich such a structure, guaranteeing that resolution techniques can be generalised by 
+The key requirement is the presence of an aggregator operator for combining preferences, making their set a monoid: a large body 
+of work has been devoted to enrich such a structure, guaranteeing that resolution techniques are generalised by 
 a parametric formalism for designing metrics and algorithms.
 %
 %An example are \emph{local-consistency} algorithms~\cite{arconsistency}, devised for safely moving costs  towards constraints involving a smaller number of variables, 
 %without changing the set of solutions and their preference.  In order to ``move'' quantities, we need to  ``subtract'' costs somewhere and ``add'' them elsewhere. 
 
-The paper focuses on residuated monoids for constraint programming. Their relevance for local-consistency, as mentioned above, has been spotted 
-early on~\cite{residuation1,resCS}, and various extensions  has been proposed~\cite{ipl}, as well as applications to languages based on the Linda paradigm, such as 
-\emph{Soft Concurrent Constraint Programming},  where a process may be \emph{telling} and \emph{asking} constraints to a centralised store~\cite{labelled}. 
+%The paper focuses on residuated monoids for constraint programming. 
+The relevance of residuated monoids for local consistency algorithms, where in order ``move'' costs they must be ``subtracted'' somewhere and ``added'' elsewhere,
+ has been spotted early on~\cite{residuation1,resCS}, and various extensions  has been proposed~\cite{ipl}.
+ Also, residuated monoids found applications in languages based on the Linda paradigm, such as 
+soft concurrent constraint programming,  where a process may be ``telling'' and ``asking'' constraints to a centralised store~\cite{labelled}. 
 %We consider lexicographic orders, as used in contexts with multi-objective
 %problems. That is, the preference values are obtained by the combination of separate concerns, and the order of the combination matters. 
 %We identify suitable conditions to show how to effectively build 
 %On the other side, we introduce a soft version of \emph{Bucket} and \emph{Mini-bucket} elimination algorithms, well-known exact and approximated techniques for inference,
 %which exploits the presence of a residuated monoid: in order to have an estimation of  the approximation on the preference level of a solution, it is necessary to use a removal operator. Finally we present a \emph{Depth-First Branch-and-Bound} algorithm, which exploits upper and lower bounds to prune search. 
 %Our proposals generalise the original soft versions of these approximation techniques presented in~\cite{bucketsemiring}.
-
+%
 %[OLD STUFF]
 %Preference structures in the Constraint-programming literature have been historically equipped with a monotone aggregation-operator~\cite{chapterrossi}: when \emph{soft} constraints are composed in a \emph{Soft Constraint Satisfaction Problem} (\emph{SCSP}), the cost, or alternatively the reward, for satisfying such constraints needs to be aggregated.\footnote{We instead refer to \emph{hard} constraints, when constraints can be either ``fully'' satisfied, or just not satisfied, thus having no associated preference.} In soft constraints,
 %an assignment of the variables on which the constraint relation is defined, is associated with a preference score. Some well-known examples of such preference structures in constraints are [2] and [22]. Besides these two seminal works, a large body of work has been devoted to the study of algebraic structures for sets of preferences, guaranteeing that techniques can be generalised by having a parametric and formal tool to design metrics and operators
 %
-
+%
 %Some  well-known  examples of such preference structures in constraints  are \cite{jacm97}  and \cite{schiex}. Besides these two seminal works, a  large body of work has been devoted to the study of algebraic structures for sets of preferences, guaranteeing that  techniques can be generalised by having a parametric and formal tool to design metrics and operators.
-
+%
 %The motivation  is due to its use in algorithms that solve CSPs: for instance, the idea behind \emph{local-consistency} algorithms~\cite{arconsistency} is to safely move costs  towards smaller arity constraints, without changing the set of solutions and their preference.  Hence, we need to ``subtract'' costs somewhere, and then ``add'' them somewhere else.
-
+%
 %In \cite{ipl} we have extended \cite{residuation1} with the purpose to have  an inverse operator to work on bipolar preference values (i.e., positive and negative ones). In \cite{labelled} we have used residuation to give a labelled semantics to a process algebra \emph{telling} and \emph{asking} soft constraints to a centralised store. In  \cite{catuscia}, some of the authors of this paper provided a novel formalisation of soft constraints in terms of \emph{polyadic algebras} whose carrier is a residuated monoid.
-
+%
 %In this paper  we turn our attention to the property of residuation in lexicographic orders.  
-Lexicographic orders are potentially useful in applications that involve multiple objectives and attributes,
-and as such have been extensively investigated in the literature on soft constraints.
+Lexicographic orders are useful in applications that involve multiple objectives and attributes,
+and they have been extensively investigated in the literature on soft constraints.
 %,  where feasibility constraints impose restrictions on assignments that are actually possible.  
 %\emph{Multi-objective combinatorial optimisation} (MOCO) is concerned with finding optimal solutions of systems as  $\min_{x \in  X} f(x) = (f_1(x), f_2(x), \dots, f_p(x))$, where $X$ is a feasible set of solutions, and $f_i$ are the objectives, $f_i: X \longrightarrow \mathbb R$ in a vector $f$.
 %Lexicographic orders in SCSPs have been extensively investigated in the literature. 
@@ -169,8 +169,8 @@ into a soft constraint formalism.
 %following a lexicographic order~\cite{valuation}. 
 %For example, in \cite{valuation} the authors  exploit the lexicographic ordering in constraint hierarchies by mapping layers to partially-ordered valuation structures. 
 %
-However, even if lifting the algebraic structure of a preference set to the associated set of (possibly infinite) tuples with a point-wise order is straightforward, 
-doing the same for the lexicographic order is not, and this result cannot be directly achieved for the formalisms in \cite{jacm97,schiex}. 
+However, while lifting the algebraic structure of a preference set to the associated set of (possibly infinite) tuples with a point-wise order is straightforward, 
+doing the same for the lexicographic order is not, and it cannot be directly achieved for the formalisms in \cite{jacm97,schiex}. 
 %
 The solution advanced in~\cite{GadducciHMW13,valuation} is to drop some preference values from the domain carrier of the set of tuples. 
 %
@@ -179,12 +179,13 @@ this proposal by dealing with sets of preferences that form residuated monoids, 
 to tuples of any length.
 
 
-The paper has the following structure: in Section~\ref{sec:om} we present  the background on partially ordered residuated monoids, which is the structure 
+The paper has the following structure. In Section~\ref{sec:om} we present  the background on partially ordered residuated monoids, the structure 
 we adopt to model preferences. 
 %
-In Section~\ref{sec:collapsing} we consider the collapsing elements of a monoid, which will be used to define an ad-hoc algebraic structure representing 
-(possibly infinite) lexicographically ordered tuples of elements of the chosen monoid, which is given in Section~\ref{sec:lexico}. 
-The latter section also presents our main construction, introducing residuation for these lexicographically ordered monoids.  Finally, in Section~\ref{sec:conclusion} we wrap up the paper with concluding remarks and ideas about future works.
+In Section~\ref{sec:collapsing} we consider the collapsing elements of a monoid, which are used to define an ad-hoc algebraic structure representing 
+(possibly infinite) lexicographically ordered tuples of elements of the chosen monoid, as given in Section~\ref{sec:lexico}. 
+The latter section also presents our main construction, introducing residuation for these lexicographically ordered monoids.  
+Finally, in Section~\ref{sec:conclusion} we wrap up the paper with concluding remarks and ideas about future works.
 %
 
 \section{Preliminaries}\label{sec:om}
@@ -581,7 +582,7 @@ whenever distributivity holds, as shown by the lemma below.
 \begin{remark}
 	Consider the (non distributive) CLM $\langle \mathbb [0 \ldots n] \cup \{\bot,\top\}, +, 0 \rangle$ 
 	obtained by lifting the initial segment $[0 \ldots n]$ of the natural numbers with the flat order (as done for
-	the CLM of all natural numbers in Example~\ref{flat}). Here addition is capped, so that 
+	the CLM of natural numbers in Example~\ref{flat}). Here addition is capped, so that 
 	e.g. $n + m = n$ for all $m$. Hence, $C([0 \ldots n] \cup \{\bot,\top\}) = [1 \ldots n] \cup \{\bot,\top\}$
 	that is, all elements except $0$. Instead, $C'([0 \ldots n] \cup \{\bot,\top\})) =  \{\bot,\top\}$.
 \end{remark}
