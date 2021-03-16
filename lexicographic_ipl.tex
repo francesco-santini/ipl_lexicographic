@@ -113,8 +113,8 @@ equipped with an operator that behaves as a weak inverse to the monoidal one, wi
 %Related to the latter, o
 One of the recent area of application of residuation theory is Constraint Programming. 
 %
-Roughly, a \emph{Soft Constraint Satisfaction Problem}
-(\emph{SCSP}) 
+Roughly, a soft constraint satisfaction problem
+%(\emph{SCSP}) 
 is given by a relation on a set of variables and a preference 
 score to each assignment of the variables~\cite{jacm97,schiex}. 
 %
@@ -179,7 +179,8 @@ this proposal by dealing with sets of preferences that form residuated monoids, 
 to tuples of any length.
 
 
-The paper has the following structure. In Section~\ref{sec:om} we present  the background on partially ordered residuated monoids, the structure 
+The paper extends those results in~\cite{jelia2021} concerning lexicographic orders, and it has the following structure. 
+In Section~\ref{sec:om} we present  the background on partially ordered residuated monoids, the structure 
 we adopt to model preferences. 
 %
 In Section~\ref{sec:collapsing} we consider the collapsing elements of a monoid, which are used to define an ad-hoc algebraic structure representing 
@@ -205,7 +206,8 @@ to serve as preferences, which allows us to compare and compose preference value
 \label{sec:lem}
 
 The first step is to define an algebraic structure for modelling preferences. 
-We refer to~\cite{ipl} for the missing proofs as well as for an introduction and a comparison with other proposals.
+We refer to~\cite{ipl} %for the missing proofs as well as 
+for an introduction and a comparison with other proposals.
 % such as~\cite{xxx}\todo{Manca citazione}.
 
 \begin{definition}[Orders]
@@ -1065,11 +1067,20 @@ if $\top \in I(A)$, and  $\top \bot^\omega$ otherwise.
 
 
 \section{Conclusions}\label{sec:conclusion}
-In this paper we considered a formal framework for  SCSPs based on a residuated monoid of partially ordered preferences.  More specifically, the framework is dedicated to lexicographic orders.
-Similar valued structures in the literature, such as pioneering ones as \cite{jacm97,schiex}, cannot straightforwardly deal with preferences managed as lexicographic orders, while successive proposals can~\cite{GadducciHMW13,valuation}. This work fills the gap by extending residuation~\cite{residuation1} also to such a class of preferences. This allows for using the classical solving algorithms that need some preference removal, as for instance arc consistency where values need to be moved 
-from binary to unary constraints, or for proving a cost estimation to be used during the search for solutions, as for instance branch-and-bound algorithms. 
+In this paper we considered a framework for soft constraint formalisms based on a residuated monoid of partially ordered preferences.  
+%
+More specifically, our focus was to show that the framework can include also lexicographic orders.
 
-In the future we plan to design specific heuristics to improve the solution of SCSPs based on such orders. 
+Despite the practical relevance of these orders, the valued structures for constraints proposed in the literature, 
+such as the pioneering~\cite{jacm97,schiex}, cannot straightforwardly deal 
+with such a class of preferences, and their modelling required some ingenuity~\cite{GadducciHMW13,valuation}. 
+%
+Generalising such proposals by using residuated monoids~\cite{residuation1} allows the extension of the classical solving algorithms 
+that need preference removal, such as arc consistency, where values need to be moved from binary to unary constraints~\cite{ipl}.
+%
+The paper shows that the resolution techniques devised for this richer framework can tackle also lexicographic orders.
+
+Our current work is on the design of specific heuristics to specialise such techniques to constraint satisfaction problems involving these orders. 
 
 % (see Section~\ref{sec:bucket}). 
 %
