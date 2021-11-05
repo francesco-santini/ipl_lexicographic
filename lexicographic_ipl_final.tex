@@ -288,9 +288,9 @@ For ease of notation, we use infix notation: $a \monop b$ stands for $\monop(a,b
 %	the natural order ($\forall a, b \in A.\, a \leq b$ iff $a \monop b = b$) 
 %	is a partial order, and 
 %	it coincides with subset inclusion:
-	The obvious partial order is given by subset inclusion, and 
-	in fact $\mathcal{P} = \langle 2^V, \subseteq, \cap, V \rangle$
-	is an SLM, yet not necessarily a CLM.
+	The partial order is given by subset inclusion, and 
+	$\mathcal{P} = \langle 2^V, \subseteq, \cap, V \rangle$
+	is a CLM, with $\emptyset$ and $V$ the bottom and top elements. % yet not necessarily a CLM.
 \end{example}
 
 In general, the partial order $\leq$ and the multiplication $\otimes$ can be unrelated.
@@ -300,7 +300,8 @@ This is not the case for distributive CLMs.
 	\label{dist}
 	A SLM $\langle A, \leq, \monop, \1 \rangle$ is finitely distributive if
 	$\forall X \subseteq A.\, \forall a \in A.\,  a \monop  \bigvee X = \bigvee \{a \monop x \mid x \in X\}$ 
-	whenever $X$ is finite and distributive if the equality holds also whenever X is infinite and the LUBs exist.
+	whenever $X$ is finite.
+	A CLM is distributive if the equality holds also whenever X is infinite. % and the LUBs exist.
 \end{definition}
 
 %Being distributive means that the equality hold whenever both side are defined.
@@ -313,7 +314,7 @@ In the following, we will sometimes write $a \otimes X$ for the set  $\{a \monop
 	(i.e., $\forall a, b, c \in A.\, a \leq b \Rightarrow a \otimes c \leq  b \otimes c$)
 	and that $\bot$ is the zero element
 	of the monoid (i.e., $\forall a \in A.\, a\otimes  \bot = \bot$).
-	The powerset SLM in Example~\ref{ex:powerset} is distributive.
+	The powerset CLM $\mathcal{P}$ in Example~\ref{ex:powerset} is distributive.
 \end{remark}
 
 \begin{example}[Extended integers]\label{ex:bipolar}
