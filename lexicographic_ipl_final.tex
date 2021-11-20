@@ -374,7 +374,7 @@ possible solutions, whenever they exist, and in that case the maximal element is
 solution.
 
 \begin{definition}[residuation]
-	A residuated POM is a 5-tuple $\langle A,$ $\leq, \otimes,  \odiv, \1 \rangle$ such that
+	A residuated\todo{Def. 4: Give an example of the residuation function; e.g. of the powerset example.} POM is a 5-tuple $\langle A,$ $\leq, \otimes,  \odiv, \1 \rangle$ such that
 	$\langle A, \leq \rangle$ is a PO,  $\langle A, \otimes, \1 \rangle$ is a monoid, and
 	$\odiv: A \times A \rightarrow A$ is a function such that $\forall a, b, c \in A.\ b \otimes c \leq a \iff c \leq a \odiv b$.
 \end{definition}
@@ -501,7 +501,7 @@ elements of $A$.
 Note that an analogous closure property does not hold for LUBs.
 
 \begin{example}\label{flat}
-	Consider the monoid of natural numbers $\langle \mathbb N, +, 0 \rangle$ and 
+	Consider\todo{Non ho trovato. p. 4, Ex. 4, $C(\mathbb{N} \times \mathbb{N})$: Is $C((\mathbb{N} \cup \{ \infty \})^2)$ meant?  Better give the monoid a name, e.g., $N$ and use this.}  the monoid of natural numbers $\langle \mathbb N, +, 0 \rangle$ and 
 	the (non distributive) CLM $\mathcal{M} = \langle \mathbb N \cup \{\bot,\top\}, \emptyset, +, 0\rangle$ 
 	obtained by lifting the flat order (i.e., $a \not \leq b$ for any $a, b \in \mathbb N$ as well as 
 	$a + \bot = \bot = \top + \bot$ and $a + \top = \top$  for any $a \in \mathbb N$).
@@ -518,7 +518,7 @@ We now present a simple fact that is needed later on.
 
 \begin{lemma}
 	Let $A_1, A_2$ be POMs and $A_1 \times A_2$ their Cartesian product.
-	Then we have $C(A_1 \times A_2) = (C(A_1) \times A_2) \cup (A_2 \times C(A_2))$. 
+	Then we have $C(A_1 \times A_2) = (C(A_1) \times A_2) \cup (A_1 \times C(A_2))$. 
 \end{lemma}
 
 \begin{example}
