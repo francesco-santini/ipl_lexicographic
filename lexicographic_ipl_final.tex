@@ -408,14 +408,24 @@ of the set-theoretical interpretation of boolean logics, it corresponds to the s
 
 \begin{remark}
 	\label{remarkC}
-	As for distributivity, given two residuated POMs, it is easy to show that their Cartesian product
-	is a residuated POM, with $\odiv_{\mathcal{A},\mathcal{B}}$ defined point-wise.
+	As it holds for distributive POMs, given two residuated POMs their Cartesian product
+	is a residuated POM, with $\odiv_{\mathcal{A} \times \mathcal{B}}$ defined point-wise.
 \end{remark}
 
-Residuation implies distributivity (see e.g.~\cite[Lemma 2.2]{ipl}).
+We can give an order characterisation of the residuation operator.
 
-\begin{lemma}
-	Let $\langle A, \leq, \monop, \1 \rangle$ be a residuated POM. 
+\begin{lemma}\label{rclm1}
+	Let $\langle A,$ $\leq, \otimes,  \odiv, \1 \rangle$ be a residuated POM with bottom.
+	Then $a \odiv b = \bigvee \{c \mid b \otimes c \leq a\}$ for all $a, b \in A$.
+\end{lemma}
+
+In words, the LUB of the (possibly infinite) set 
+$\{c \mid b \otimes c \leq a\}$ exists and is equal to $a \odiv b$.
+%
+In fact, residuation implies distributivity (see~\cite[Lemma 2.2]{ipl}).
+
+\begin{lemma}\label{rclm2}
+	Let $\langle A, \leq, \monop, \odiv, \1 \rangle$ be a residuated POM. 
 	Then $\monop$ is monotone.
 	If additionally it is a SLM (CLM), then it is finitely distributive
 	(distributive).
@@ -424,19 +434,23 @@ Residuation implies distributivity (see e.g.~\cite[Lemma 2.2]{ipl}).
 %xxx
 %\end{proof}
 
-Conversely, it is noteworthy that CLMs are always residuated,
-and the following folklore fact holds.
+In view of Lemma~\ref{rclm1} and Lemma~\ref{rclm2}, it is immediate to
+establish a one-to-one correspondence between residuated CLMs and distributive CLMs.
+
+%Conversely, it is noteworthy that CLMs are always residuated,
+%and the following folklore fact holds.
+%%
+%%The proofs of the following lemmas come from \cite{catuscia,ipl}.
 %
-%The proofs of the following lemmas come from \cite{catuscia,ipl}.
+%\begin{lemma}
+%	\label{resCLM}
+%	Let $\langle A, \leq, \monop, \1 \rangle$ be a distributive CLM. 
+%	%
+%	Then it is residuated and 
+%	$\forall a, b \in A.\ a \odiv b = \bigvee \{c \mid b \otimes c \leq a\}$.
+%\end{lemma}
 
-\begin{lemma}
-	\label{resCLM}
-	Let $\langle A, \leq, \monop, \1 \rangle$ be a distributive CLM. 
-	%
-	Then it is residuated and 
-	$\forall a, b \in A.\ a \odiv b = \bigvee \{c \mid b \otimes c \leq a\}$.
-\end{lemma}
-
+\smallskip
 We close with a simple lemma relating residuation with the top and the bottom elements of a POM.
 
 \begin{lemma}
@@ -572,8 +586,8 @@ Clearly, $C'(A) \subseteq C(A)$. However, we can replicate Lemma~\ref{ideal}.
 	Then $C'(\mathcal{A})$ is an ideal 
 	(and thus, $\langle C'(A), \monop, \1 \rangle$ is a sub-monoid).
 	If $\monop$ is monotone, then 
-	$C'(\mathcal{A})$ a prime ideal
-	(and thus, $\langle I'(A), \monop, \1 \rangle$ is a sub-monoid).
+	$C'(\mathcal{A})$ is a prime ideal
+	(and thus, also $\langle I'(A), \monop, \1 \rangle$ is a sub-monoid).
 \end{lemma}
 
 Explicitly, $I'(A) = \{ c \mid \forall a, b \in A.\ a \otimes c = b \otimes c \implies a \not < b \}$.
@@ -667,7 +681,35 @@ where $X_\mathcal{A} = \{ a \mid \langle a, b \rangle \in X\}$
 and $X_\mathcal{B} = \{ b \mid \langle \bigvee X_\mathcal{A}, b \rangle \in X\}$.
 \end{proposition}
 \begin{proof}
-XXX
+	Now, $\bigvee X$ is clearly the LUB of $X$ with respect to $\leq_{\mathcal{A} \times \mathcal{B}}$,
+	just that that $\bigvee X =  \langle \bigvee X_\mathcal{A}, \bot_\mathcal{B} \rangle$ if 
+	$X_\mathcal{B} = \emptyset$, which may occur if $x <_\mathcal{A} \bigvee X_\mathcal{A}$ for all 
+	$x \in X_\mathcal{A}$.
+
+	Let us then move to distributivity. We need to show that
+	$\bigvee \langle a, b\rangle \otimes_{\mathcal{A} \times \mathcal{B}} X = \langle a, b\rangle \otimes_{\mathcal{A} \times \mathcal{B}}  (\bigvee X)$ holds,
+	with the latter equivalent to $\langle a \otimes_\mathcal{A} \bigvee X_\mathcal{A}, b \otimes_\mathcal{B} \bigvee X_\mathcal{B} \rangle$.
+	Now, $\langle a, b\rangle \otimes_{\mathcal{A} \times \mathcal{B}} X$ coincides with 
+	$Y = \{\langle a \otimes_\mathcal{A}  x,  b \otimes_\mathcal{B}  y \rangle \mid \langle x, y \rangle \in X\}$.
+	By distributivity of $\mathcal{A}$, we have that $\bigvee Y_\mathcal{A} = a \otimes_\mathcal{A} \bigvee X_\mathcal{A}$.
+	If $a$ is collapsing then we are done, since $b = \bot_\mathcal{B}$ and thus $b \otimes_\mathcal{B} \bigvee X_\mathcal{B} = 
+	\bigvee Y_\mathcal{B} = \bot_{B}$
+	even if either $X_\mathcal{B} \neq \emptyset$ or $Y_\mathcal{B} \neq \emptyset$. Otherwise, 
+	let 
+	$X'_\mathcal{B} = \{ z \mid \langle x, z\rangle \in X \}$ and note that 
+	$$Y_\mathcal{B} = \{ y \mid \langle \bigvee Y_\mathcal{A}, y \rangle \in Y\}
+	= \{ y \mid \langle a \otimes_\mathcal{A} \bigvee X_\mathcal{A}, y \rangle \in \langle a, b\rangle \otimes_{\mathcal{A} \times \mathcal{B}} X \rangle \}$$
+	\noindent
+	Now, note that $\bigvee X_\mathcal{A} \not \in X_\mathcal{A}$ implies $X_\mathcal{B} = \emptyset$ as well as, since $a$ is cancellative, $Y_\mathcal{B} = \emptyset$.
+	If $X_\mathcal{B} = Y_\mathcal{B} = \emptyset$ we are done, so let us assume that $\bigvee X_\mathcal{A} \in X_\mathcal{A}$. Then
+%	$$\{ b \otimes_\mathcal{B} z \mid z \in X'_\mathcal{B} \wedge 
+%	      \langle a \otimes_\mathcal{A} \bigvee X_\mathcal{A}, b  \otimes_\mathcal{B} z \rangle \in \langle a, b\rangle \otimes_{\mathcal{A} \times \mathcal{B}} X \rangle \} =$$
+	$$Y_\mathcal{B} = \{ b \otimes_\mathcal{B}   z \mid \bigvee X_\mathcal{A} \in X_\mathcal{A} \wedge z \in X'_\mathcal{B} \wedge 
+	      \langle a \otimes_\mathcal{A} \bigvee X_\mathcal{A}, b  \otimes_\mathcal{B} z \rangle \in \langle a, b\rangle \otimes_{\mathcal{A} \times \mathcal{B}} X \rangle \} =$$
+	$$\{ b \otimes_\mathcal{B} z \mid  \bigvee X_\mathcal{A} \in X_\mathcal{A}  \wedge z \in X'_\mathcal{B}\} =
+	    b \otimes_\mathcal{B} \{ z \mid \langle \bigvee X_\mathcal{A}, z \rangle \in X \} = b \otimes_\mathcal{B} X_\mathcal{B}$$
+	\noindent
+	and thus by distributivity of $\otimes_\mathcal{B}$ we have $\bigvee Y_\mathcal{B} = b \otimes_\mathcal{B} \bigvee X_\mathcal{B}$.
 \end{proof}
 
 Since $Lex(\mathcal{A},\mathcal{B})$ is a distributive CLM if so are $\mathcal{A}$ and $\mathcal{B}$, it is also residuated.
@@ -699,7 +741,7 @@ we have
 	\langle a_1 \odiv_\mathcal{A} a_2, b_1  \odiv_\mathcal{B} b_2\rangle 
 	& & \mbox{if  }  a_1 \odiv a_2 \in I(\mathcal{A}) \mbox{ and } a_2 \in D(a_1)\\
 	\langle a_1 \odiv_\mathcal{A} a_2, \top_\mathcal{B} \rangle 
-	& & \mbox{if  } a_1 \odiv b_1 \in I(\mathcal{A}) \mbox{ and } a_2 \not \in D(a_1) \\
+	& & \mbox{if  } a_1 \odiv a_2 \in I(\mathcal{A}) \mbox{ and } a_2 \not \in D(a_1) \\
 	\langle a_1 \odiv_\mathcal{A} a_2, \bot_\mathcal{B} \rangle 
 	& & \mbox{if  }  a_1 \odiv a_2 \in C(\mathcal{A}) 
 	\end{array}
@@ -707,7 +749,32 @@ we have
 \]
 \end{proposition}
 \begin{proof}
-XXXX
+We need to prove that for all $\langle a, b\rangle \in A\times B$ we have
+$$\langle a_2, b_2\rangle \otimes_{\mathcal{A} \times \mathcal{B}} \langle a, b\rangle \leq_L \langle a_1, b_1\rangle
+\iff \langle a, b\rangle \leq_L  \langle a_1, b_1\rangle \odiv_L \langle a_2, b_2\rangle$$
+%
+Recall that $\otimes_{\mathcal{A} \times \mathcal{B}}$ works component-wise and 
+$a_1 \odiv_\mathcal{A} a_2 = \bigvee \{a \mid a_2 \otimes_\mathcal{A} a \leq_\mathcal{A} a_1\}$.
+
+\begin{itemize}
+\item[$\Rightarrow$] Clearly $a \leq_\mathcal{A} a_1 \odiv_\mathcal{A} a_2$ holds.
+If $a <_\mathcal{A} a_1 \odiv_\mathcal{A} a_2$ we are done, so let 
+$a = a_1 \odiv_\mathcal{A} a_2$. If $a \in C(\mathcal{A)}$ then 
+$b = \bot_\mathcal{B}$ and we are done, so let $a = a_1 \odiv_\mathcal{A} a_2 \in I(\mathcal{A)}$.
+If $a_2 \not \in D(a_1)$ then having chosen $\top_\mathcal{B}$ we are done, so let $a_2 \in D(a_1)$.
+Then $a_2 \otimes_\mathcal{A} a = a_1$: it implies $b_2 \otimes b \leq_\mathcal{B} b_1$
+and we are done.
+
+\item[$\Leftarrow$]
+Clearly $a_2 \otimes_\mathcal{A} a \leq_\mathcal{A} a_1$ holds.
+If $a_2 \otimes_\mathcal{A} a <_\mathcal{A} a_1$ we are done, so let 
+$a_2 \otimes_\mathcal{A} a = a_1$: it implies $a_2 \in D(a_1)$.
+%If $a \in C(\mathcal{A)}$ then 
+%$b = \bot_\mathcal{B}$ and we are done, so let $a \in I(\mathcal{A)}$.
+If $a_1 \odiv_\mathcal{A} a_2 \in C(A)$ then $b = \bot_\mathcal{B}$ and we are done, so let
+$a_1 \odiv_\mathcal{A} a_2 \in I(A)$. Then $b\leq_\mathcal{B} b_1 \odiv_\mathcal{B} b_2$
+and we are done.
+\end{itemize}
 \end{proof}
 
 While $\langle \bot_\mathcal{A}, \bot_\mathcal{B} \rangle$ is the bottom element, note that the top element can be 
@@ -719,10 +786,10 @@ the former if $\top_\mathcal{A} \in C(\mathcal{A})$, the latter if $\top_\mathca
 We now move to finitely iterated products. For a POM 
 $\mathcal{A} = \langle A, \leq_\mathcal{A}, \monop_\mathcal{A}, \1_\mathcal{A} \rangle$, 
 we denote by $\mathcal{A}^k =  \langle A^k, \leq^k_\mathcal{A}, \monop^k_\mathcal{A}, \1^k_\mathcal{A} \rangle$
-the POM given by its Cartesian $k$-ary product, whose elements are tuples of length $k$
-of elements in $\mathcal{A}$ and the monoidal operator is point-wise.
+the POM of its Cartesian $k$-ary product, whose elements are tuples of length $k$
+of elements in $\mathcal{A}$ and the monoidal operator is component-wise.
 %
-If $\mathcal{A}$ is residuated, so is $\mathcal{A}^k$ with $\odiv^k_\mathcal{A}$ defined point-wise.
+If $\mathcal{A}$ is residuated, so is $\mathcal{A}^k$ with $\odiv^k_\mathcal{A}$ component-wise.
 
 \begin{proposition}\label{def:lexilist}
 	Let $\mathcal{A}$ be a POM with bottom element $\bot_\mathcal{A}$
@@ -736,7 +803,7 @@ and it allows to lift distributivity and residuation from $\mathcal{A}$.
 However, in order to later consider infinite tuples, we look for 
 a more operational definition. % of such POMs.
 
-\begin{lemma}
+\begin{proposition}
 	Let $\mathcal{A}$ be a POM with bottom element $\bot_\mathcal{A}$.
 	Then $Lex^{k}(\mathcal{A}) = \langle A^k_L, \leq^k_L, \monop^k_\mathcal{A}, \1^k_\mathcal{A} \rangle$
 	%for all $k$
@@ -744,7 +811,7 @@ a more operational definition. % of such POMs.
 	and $\langle a_1, \ldots, a_k\rangle <^k_L \langle b_1, \ldots, b_k\rangle$ if there exists $j \leq k$ such that
 	$a_i = b_i$ for all $i < j$ and %either $j = k$ and $a_k \leq_\mathcal{A}  b_k$ or 
 	$a_{j} <_\mathcal{A}  b_{j}$.
-\end{lemma}
+\end{proposition}
 \begin{proof}
 	The proof is by induction on $k$. Concerning the order, it is straightforward.
 	Thus, let us look at the set of elements. For $k = 1$ it is obvious.
@@ -818,35 +885,21 @@ generalisation of the latter for a set $X \subseteq A^k$.
 	%	which also coincides with $\bot$ if $a_{n+1} = \bot$.
 \end{proof}
 
-Since $Lex^k(\mathcal{A})$ is a distributive CLM if so is $\mathcal{A}$, it is also residuated.
-
-\begin{example}
-	Let us consider the usual tropical CLM $\mathcal{N}$ of natural numbers with inverse order 
-	(see Remark~\ref{natural}),
-	and the CLM $Lex_{2}(\mathcal{N})$. Clearly $C(\mathcal{N}) = +\infty$. We then have for example
-	that
-	$(3, 6) \odiv_2 (4, 2) = \bigvee \{(x, y) \mid (4 + x, 2 + y) \leq_2 (3, 6)\} = (0,0)$.
-	Indeed, $(4 + x, 2 + y) \leq_2 (3, 6)$ holds for any possible choice of $(x, y)$,
-	since $4 + x < 3$ for all $x$, hence $(0,0)$ as the result.
-	%
-	Note that the 
-	result would have been $(0, 4)$ for the CLM $\mathcal{N}^2$ obtained via the Cartesian product.
-\end{example}
-
-An operational characterisation can be obtained also for POMs. First, we need some additional definitions and technical lemmas.
+An operational characterisation for residuation can also be obtained. 
+First, we need some additional definitions and technical lemmas.
 
 \begin{definition}
 	Let $\langle A, \leq, \monop, \odiv, \1 \rangle$
-	be a residuated POM with bottom and $a, b \in A^k_L$. Then 
+	be a residuated POM with bottom and $s, t \in A^k_L$. Then 
 	%		\item $\beta(a) = min\{ i \mid a_i \in C(A)\}$
 	we define the partial functions 
-	$\gamma(a, b) = \min\{ i \mid (a_i \odiv b_i) \in C(A)\}$
-	and $\delta(a, b) = \min\{ i \mid (a_i \odiv b_i) \otimes b_i < a_i\}$.
+	$\gamma(s, t) = \min\{ i \mid (s_i \odiv t_i) \in C(A)\}$
+	and $\delta(s, t) = \min\{ i \mid (s_i \odiv t_i) \otimes s_i < t_i\}$.
 %	with the convention that the result is $k+1$ whenever the set if empty.
 \end{definition}
 
-We adopt the usual convention $\delta(s,t)\uparrow$ and $\delta(s,t)\downarrow$ for 
-that partial function $\delta$ being defined or undefined on the inputs $s,t$,
+We adopt the usual convention $\delta(s,t)\downarrow$ and $\delta(s,t)\uparrow$ for 
+that partial function $\delta$ being respectively defined or undefined on the inputs $s,t$,
 and the same for $\gamma$.
 
 %Recall that if $\langle A, \leq, \monop, \1 \rangle$ be a residuated POM, then 
@@ -854,17 +907,17 @@ and the same for $\gamma$.
 
 \begin{lemma}\label{limit}
 	Let $\langle A, \leq, \monop, \odiv, \1 \rangle$
-	be a residuated POM with bottom and $s, t \in Lex^k(A)$. Then 
+	be a residuated POM with bottom and $s, t \in A^k_L$. Then 
 	%either $\delta(a,b) = k+1$ or 
 	$\delta(s,t) \leq \gamma(s,t)$
 	whenever both 	$\delta(s,t)$ and $\gamma(s,t)$
 	are defined.
 \end{lemma}
 \begin{proof}
-	If $\gamma(a,b) < \delta(a,b) \leq k$ then 
-	$(a_{\gamma(a,b)} \odiv b_{\gamma(a,b)}) \otimes b_{\gamma(a,b)} = a_{\gamma(a,b)}$.
-	Since $C(A)$ is an ideal of $A$, it holds that $a_{\gamma(a,b)} \in C(A)$, 
-	which in turn implies that $(a_{\delta(a,b)} \odiv b_{\delta(a,b)}) \otimes b_{\delta(a,b)} < a_{\delta(a,b)} = \bot$,
+	If $\gamma(s,t) < \delta(s,t) \leq k$ then 
+	$t_{\gamma(s,t)} \otimes (s_{\gamma(s,t)} \odiv t_{\gamma(s,t)})  = s_{\gamma(s,t)}$.
+	Since $C(A)$ is an ideal, it holds that $s_{\gamma(s,t)} \in C(A)$, 
+	which in turn implies that $t_{\delta(s,t)} \otimes (s_{\delta(s,t)} \odiv t_{\delta(s,t)}) < s_{\delta(s,t)} = \bot$,
 	hence a contradiction. 
 \end{proof}
 
