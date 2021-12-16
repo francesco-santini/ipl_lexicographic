@@ -738,11 +738,11 @@ we have
 \[
 	\langle a_1, b_1\rangle \odiv_L \langle a_2, b_2\rangle = 	\begin{cases}
 	\begin{array}{lcl}
-	\langle a_1 \odiv_\mathcal{A} a_2, b_1  \odiv_\mathcal{B} b_2\rangle 
+	\langle a_1 \odiv_\mathcal{A} \, a_2, b_1  \odiv_\mathcal{B} \, b_2\rangle 
 	& & \mbox{if  }  a_1 \odiv a_2 \in I(\mathcal{A}) \mbox{ and } a_2 \in D(a_1)\\
-	\langle a_1 \odiv_\mathcal{A} a_2, \top_\mathcal{B} \rangle 
+	\langle a_1 \odiv_\mathcal{A} \, a_2, \top_\mathcal{B} \rangle 
 	& & \mbox{if  } a_1 \odiv a_2 \in I(\mathcal{A}) \mbox{ and } a_2 \not \in D(a_1) \\
-	\langle a_1 \odiv_\mathcal{A} a_2, \bot_\mathcal{B} \rangle 
+	\langle a_1 \odiv_\mathcal{A} \, a_2, \bot_\mathcal{B} \rangle 
 	& & \mbox{if  }  a_1 \odiv a_2 \in C(\mathcal{A}) 
 	\end{array}
 	\end{cases}
@@ -761,7 +761,7 @@ $a_1 \odiv_\mathcal{A} a_2 = \bigvee \{a \mid a_2 \otimes_\mathcal{A} a \leq_\ma
 If $a <_\mathcal{A} a_1 \odiv_\mathcal{A} a_2$ we are done, so let 
 $a = a_1 \odiv_\mathcal{A} a_2$. If $a \in C(\mathcal{A)}$ then 
 $b = \bot_\mathcal{B}$ and we are done, so let $a = a_1 \odiv_\mathcal{A} a_2 \in I(\mathcal{A)}$.
-If $a_2 \not \in D(a_1)$ then having chosen $\top_\mathcal{B}$ we are done, so let $a_2 \in D(a_1)$.
+If $a_2 \not \in D(a_1)$ then by having chosen $\top_\mathcal{B}$ we are done, so let $a_2 \in D(a_1)$.
 Then $a_2 \otimes_\mathcal{A} a = a_1$: it implies $b_2 \otimes b \leq_\mathcal{B} b_1$
 and we are done.
 
@@ -771,8 +771,8 @@ If $a_2 \otimes_\mathcal{A} a <_\mathcal{A} a_1$ we are done, so let
 $a_2 \otimes_\mathcal{A} a = a_1$: it implies $a_2 \in D(a_1)$.
 %If $a \in C(\mathcal{A)}$ then 
 %$b = \bot_\mathcal{B}$ and we are done, so let $a \in I(\mathcal{A)}$.
-If $a_1 \odiv_\mathcal{A} a_2 \in C(A)$ then $b = \bot_\mathcal{B}$ and we are done, so let
-$a_1 \odiv_\mathcal{A} a_2 \in I(A)$. Then $b\leq_\mathcal{B} b_1 \odiv_\mathcal{B} b_2$
+If $a_1 \odiv_\mathcal{A} \, a_2 \in C(A)$ then $b = \bot_\mathcal{B}$ and we are done, so let
+$a_1 \odiv_\mathcal{A} a_2 \in I(A)$. Then $b\leq_\mathcal{B} b_1 \odiv_\mathcal{B} \, b_2$
 and we are done.
 \end{itemize}
 \end{proof}
