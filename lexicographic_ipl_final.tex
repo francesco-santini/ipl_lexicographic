@@ -690,24 +690,23 @@ and $X_\mathcal{B} = \{ b \mid \langle \bigvee X_\mathcal{A}, b \rangle \in X\}$
 	$\bigvee \langle a, b\rangle \otimes_{\mathcal{A} \times \mathcal{B}} X = \langle a, b\rangle \otimes_{\mathcal{A} \times \mathcal{B}}  (\bigvee X)$ holds,
 	with the latter equivalent to $\langle a \otimes_\mathcal{A} \bigvee X_\mathcal{A}, b \otimes_\mathcal{B} \bigvee X_\mathcal{B} \rangle$.
 	Now, $\langle a, b\rangle \otimes_{\mathcal{A} \times \mathcal{B}} X$ coincides with 
-	$Y = \{\langle a \otimes_\mathcal{A}  x,  b \otimes_\mathcal{B}  y \rangle \mid \langle x, y \rangle \in X\}$.
+	$Y = \{\langle a \otimes_\mathcal{A}  c,  b \otimes_\mathcal{B}  d \rangle \mid \langle c, d \rangle \in X\}$.
 	By distributivity of $\mathcal{A}$, we have that $\bigvee Y_\mathcal{A} = a \otimes_\mathcal{A} \bigvee X_\mathcal{A}$.
 	If $a$ is collapsing then we are done, since $b = \bot_\mathcal{B}$ and thus $b \otimes_\mathcal{B} \bigvee X_\mathcal{B} = 
 	\bigvee Y_\mathcal{B} = \bot_{B}$
 	even if either $X_\mathcal{B} \neq \emptyset$ or $Y_\mathcal{B} \neq \emptyset$. Otherwise, 
-	let 
-	$X'_\mathcal{B} = \{ z \mid \langle x, z\rangle \in X \}$ and note that 
-	$$Y_\mathcal{B} = \{ y \mid \langle \bigvee Y_\mathcal{A}, y \rangle \in Y\}
-	= \{ y \mid \langle a \otimes_\mathcal{A} \bigvee X_\mathcal{A}, y \rangle \in \langle a, b\rangle \otimes_{\mathcal{A} \times \mathcal{B}} X \rangle \}$$
+	consider $X_\mathcal{B}$ and note that 
+	$$Y_\mathcal{B} = \{ c \mid \langle \bigvee Y_\mathcal{A}, c \rangle \in Y\}
+	= \{ c \mid \langle a \otimes_\mathcal{A} \bigvee X_\mathcal{A}, c \rangle \in \langle a, b\rangle \otimes_{\mathcal{A} \times \mathcal{B}} X \rangle \}$$
 	\noindent
 	Now, note that $\bigvee X_\mathcal{A} \not \in X_\mathcal{A}$ implies $X_\mathcal{B} = \emptyset$ as well as, since $a$ is cancellative, $Y_\mathcal{B} = \emptyset$.
 	If $X_\mathcal{B} = Y_\mathcal{B} = \emptyset$ we are done, so let us assume that $\bigvee X_\mathcal{A} \in X_\mathcal{A}$. Then
 %	$$\{ b \otimes_\mathcal{B} z \mid z \in X'_\mathcal{B} \wedge 
 %	      \langle a \otimes_\mathcal{A} \bigvee X_\mathcal{A}, b  \otimes_\mathcal{B} z \rangle \in \langle a, b\rangle \otimes_{\mathcal{A} \times \mathcal{B}} X \rangle \} =$$
-	$$Y_\mathcal{B} = \{ b \otimes_\mathcal{B}   z \mid \bigvee X_\mathcal{A} \in X_\mathcal{A} \wedge z \in X'_\mathcal{B} \wedge 
-	      \langle a \otimes_\mathcal{A} \bigvee X_\mathcal{A}, b  \otimes_\mathcal{B} z \rangle \in \langle a, b\rangle \otimes_{\mathcal{A} \times \mathcal{B}} X \rangle \} =$$
-	$$\{ b \otimes_\mathcal{B} z \mid  \bigvee X_\mathcal{A} \in X_\mathcal{A}  \wedge z \in X'_\mathcal{B}\} =
-	    b \otimes_\mathcal{B} \{ z \mid \langle \bigvee X_\mathcal{A}, z \rangle \in X \} = b \otimes_\mathcal{B} X_\mathcal{B}$$
+	$$Y_\mathcal{B} = \{ b \otimes_\mathcal{B}   d \mid \bigvee X_\mathcal{A} \in X_\mathcal{A} \wedge d \in X_\mathcal{B} \wedge 
+	      \langle a \otimes_\mathcal{A} \bigvee X_\mathcal{A}, b  \otimes_\mathcal{B} d \rangle \in \langle a, b\rangle \otimes_{\mathcal{A} \times \mathcal{B}} X \rangle \} =$$
+	$$\{ b \otimes_\mathcal{B} d \mid  \bigvee X_\mathcal{A} \in X_\mathcal{A}  \wedge d \in X_\mathcal{B}\} =
+	    b \otimes_\mathcal{B} \{ d \mid \langle \bigvee X_\mathcal{A}, d \rangle \in X \} = b \otimes_\mathcal{B} X_\mathcal{B}$$
 	\noindent
 	and thus, by the distributivity of $\otimes_\mathcal{B}$ we have $\bigvee Y_\mathcal{B} = b \otimes_\mathcal{B} \bigvee X_\mathcal{B}$.
 \end{proof}
@@ -781,7 +780,7 @@ While $\langle \bot_\mathcal{A}, \bot_\mathcal{B} \rangle$ is the bottom element
 either $\langle \top_\mathcal{A}, \bot_\mathcal{B} \rangle$ or $\langle \top_\mathcal{A}, \top_\mathcal{B} \rangle$:
 the former if $\top_\mathcal{A} \in C(\mathcal{A})$, the latter if $\top_\mathcal{A} \in I(\mathcal{A})$.
 
-\subsection{Iterated products}
+\subsection{Iterated orders}
 
 We now move to finitely iterated products. For a POM 
 $\mathcal{A} = \langle A, \leq_\mathcal{A}, \monop_\mathcal{A}, \1_\mathcal{A} \rangle$, 
@@ -803,7 +802,7 @@ and it allows to lift distributivity and residuation from $\mathcal{A}$.
 However, in order to later consider infinite tuples, we look for 
 a more operational definition. % of such POMs.
 
-\begin{proposition}
+\begin{proposition}\label{pomLex}
 	Let $\mathcal{A}$ be a POM with bottom element $\bot_\mathcal{A}$.
 	Then $Lex^{k}(\mathcal{A}) = \langle A^k_L, \leq^k_L, \monop^k_\mathcal{A}, \1^k_\mathcal{A} \rangle$
 	%for all $k$
@@ -856,7 +855,7 @@ with the obvious generalisation of the latter for a set $X \subseteq A^k$.
 \end{theorem}
 \begin{proof}
 	We know that $Lex^k(\mathcal{A})$ is a finitely distributive SLM (distributive CLM). We just need to check that
-	 the characterisation of $\bigvee X$ is correct. So, let with $t^{\mid i}$ its postfix $\langle a_i, \ldots, a_k \rangle$
+	 the characterisation of $\bigvee X$ is correct. So, let with $t^{\mid i}$ its suffix $\langle a_i, \ldots, a_k \rangle$
 	 and $Y = \{ t \in X \mid t_1 = (\bigvee X)_1\} \subseteq X$. 
 	If $Y= \emptyset$ then $s_1 <^k_L (\bigvee X)_1$ for all $s \in S$ and we are done,
 	since $(\bigvee X)^{\mid 2} = \bot^{k-1}_\mathcal{A}$ ensures minimality.
@@ -964,10 +963,10 @@ Note that $\top_{Lex^k(\mathcal{A})} = \top^k_\mathcal{A}$
 if $\top_\mathcal{A} \in I(A)$, and  $\top_\mathcal{A} \cdot \bot^{k-1}_\mathcal{A}$ 
 otherwise.
 
-\subsection{$\omega$-iterated product [DA RIAGGIUSTARE]}\label{sec:infinite}
+\subsection{$\omega$-iterated orders [DA RIAGGIUSTARE]}\label{sec:infinite}
 We can now move to POMs whose elements are tuples of infinite length.
 As for the finite case, for a POM $\mathcal{A}$ we denote by $\mathcal{A}^\omega$
-the POM whose elements are tuples of infinite length
+the obvious POM whose elements are tuples of infinite length
 of elements in $\mathcal{A}$.
 
 \begin{proposition}
@@ -981,10 +980,9 @@ $a_i = b_i$ for all $i < j$ and %either $j = k$ and $a_k \leq_\mathcal{A}  b_k$ 
 $a_{j} <_\mathcal{A}  b_{j}$.
 \end{proposition}
 
-This result is a straightforward adaptation of Proposition~\ref{def:lexilist}.
-%
-Thus, we can define a POM of infinite tuples by lifting the 
-family of POMs of finite tuples.
+The result generalises the one in Proposition~\ref{pomLex},
+and it clearly holds: transitivity is given by the choice of prefixes in $I(A)$ and suffixes 
+in $\{\bot_\mathcal{A}\}^\omega$.
 
 \begin{remark}
 	Note that the seemingly obvious POM structure cannot be 
@@ -1000,37 +998,39 @@ family of POMs of finite tuples.
          and $(\bigvee X)_{i+1} = \bigvee \{ a \mid \langle (\bigvee X)_1, \ldots, (\bigvee X)_i, a \rangle \in X_{\mid i+1}\}$.
 \end{proposition}
 \begin{proof}
+	The proof that $\bigvee X$ of the LUB follows the same steps of the one given in Theorem~\ref{theo:lexiSLM}.
+	For distributivity we need to prove that for all $s \in Lex(\mathcal{A})$ and 
+	$X \subseteq Lex^\omega(\mathcal{A})$ we have $s \otimes^\omega_\mathcal{A} \bigvee X = \bigvee s \otimes^\omega_\mathcal{A} X$, 
+	with $s \otimes^\omega_\mathcal{A} X = \{ s \otimes^\omega_\mathcal{A} t \mid t \in X\}$.
 	
-	We inductively define the LUB $\bigvee X$ of a set $X \subseteq Lex_k(A)$ as
-	\begin{itemize}
-		\item $(\bigvee X)_1 = \bigvee X_1 = \bigvee \{ y \mid y \in X_{\mid 1}\}$
-		\item $(\bigvee X)_{i+1} = \bigvee \{ y \mid (\bigvee X)_1 \ldots (\bigvee X)_i y \in X_{\mid i+1}\}$
-	\end{itemize}
-	
-	Now, $\bigvee X$ is clearly a suitable candidate, since $x \leq_k \bigvee X$ for all 
-	$x \in X$. Minimality is proved inductively by exploiting the analogous 
-	definition of $\leq_k$.
-	
-	Concerning distributivity, we need to show that
-	$(\bigvee a \otimes^k X)_n = a_n \otimes (\bigvee X)_n$ holds for all $n \leq k$.
-	We proceed by induction on $n$. If $n = 1$, this boils down to the distributivity of 
-	the underlying monoid, since
-	$$(\bigvee a \otimes^k X)_1 = \bigvee (a \otimes^k X)_1 = \bigvee \{ y \mid y \in (a \otimes^k X)_{\mid 1}\} =$$
-	$$\bigvee \{ y \mid \exists z \in X_{\mid 1}.\ y = a_1 \otimes z\} = \bigvee \{ a_1 \otimes z \mid z \in X_{\mid 1}\}$$
-	and 
-	$$ a_1 \otimes (\bigvee X)_1 = a_1 \otimes \bigvee \{ y \mid y \in X_{\mid 1}\}  = \bigvee \{ a_1 \otimes y \mid y \in X_{\mid 1}\}$$
-	
-	Now, let us assume that it holds for $n$. Now we have 
-	$$(\bigvee a \otimes^k X)_{n+1} = \bigvee \{ y \mid (\bigvee a \otimes^k X)_1 \ldots (\bigvee a \otimes^k X)_n y \in (a \otimes^k X)_{\mid n+1}\} =$$
-	$$ \bigvee \{ y \mid \exists z \in X_{n+1}.\ y = a_{n+1} \otimes z \wedge a_1 \otimes (\bigvee X)_1 \ldots a_n \otimes (\bigvee X)_n y \in (a \otimes^k X)_{\mid n+1}\} =$$
-	$$ \bigvee \{ a_{n+1} \otimes z \mid (\bigvee X)_1 \ldots (\bigvee X)_n z \in X_{\mid n+1}\}$$
-	The latter equality obviously holds if $a_1 \ldots a_n$ are cancellative, yet it holds also otherwise since in that case 
-	$a_{n+1} = \bot$, hence both sides coincide with $\bot$. Finally
-	$$a_{n+1} \otimes (\bigvee X)_{n+1} = a_{n+1} \otimes \bigvee \{ y \mid (\bigvee X)_1 \ldots (\bigvee X)_n y \in X_{\mid n+1}\}  =$$
-	$$ \bigvee \{ a_{n+1} \otimes y \mid (\bigvee X)_1 \ldots (\bigvee X)_n y \in X_{\mid n+1}\}$$
-	%	which also coincides with $\bot$ if $a_{n+1} = \bot$.
+	We retrace the steps of Proposition~\ref{def:lexBI}, so let $Y = \{ s \otimes^\omega_\mathcal{A} t \mid t \in X\}$..
+	We have that 
+	$(s \otimes^\omega_\mathcal{A} \bigvee X)_1 = s_1 \otimes_\mathcal{A} (\bigvee X)_1 = s_1 \otimes_\mathcal{A} \bigvee X_1
+	= \bigvee s_1 \otimes X_1 =  \bigvee Y_1 = (\bigvee Y)_1$
+	by distributivity of $\otimes_\mathcal{A}$.
+	%
+	If $s_1 \in C(A)$ then $Y_1 \subseteq C(\mathcal{A})$ and thus $Y_2 = \{\bot_\mathcal{A}\}$ and we are done, since 
+	$s \otimes^\omega \bigvee X = (s \otimes_\mathcal{A} \bigvee X)_{\mid 1} \cdot \bot^\omega_\mathcal{A}
+	= (\bigvee Y)_{\mid 1} \cdot  \bot^\omega_\mathcal{A}  = \bigvee Y$.
+	%
+	Otherwise, 
+	let $X2 = \{ t \mid (\bigvee X)_{\mid 1} \cdot t \in X\}$ and note that 
+	$$Y2 = \{ w \mid (\bigvee Y)_{\mid 1} \cdot w \in Y\}
+	= \{ w \mid (s \otimes^\omega_\mathcal{A} \bigvee X)_{\mid 1} \cdot w \in Y \}$$
+	\noindent
+	Now, note that $(\bigvee X)_1 \not \in X_1$ implies $X2 = \emptyset$ as well as, since $s_1$ is cancellative, $Y2 = \emptyset$.
+	If $X2 = Y2 = \emptyset$ we are done, so let us assume that $(\bigvee X)_1 \in X_1$. Then
+%	$$\{ b \otimes_\mathcal{B} z \mid z \in X'_\mathcal{B} \wedge 
+%	      \langle a \otimes_\mathcal{A} \bigvee X_\mathcal{A}, b  \otimes_\mathcal{B} z \rangle \in \langle a, b\rangle \otimes_{\mathcal{A} \times \mathcal{B}} X \rangle \} =$$
+	$$Y2 = \{ s^{\mid 2} \otimes^\omega_\mathcal{A}  z \mid (\bigvee X)_1 \in X_1 \wedge z \in X2 \wedge 
+	       (s \otimes^\omega_\mathcal{A} \bigvee X)_{\mid 1} \cdot (s^{\mid 2} \otimes^\omega_\mathcal{A}  z) \in Y \} =$$
+	$$\{ s^{\mid 2} \otimes^\omega_\mathcal{A} z \mid  (\bigvee X)_1 \in X_1 \wedge z \in X2\} =
+	    s^{\mid 2} \otimes^\omega_\mathcal{A} \{ z \mid (\bigvee X)_{\mid 1} \cdot z \in X \} = s^{\mid 2} \otimes^\omega_\mathcal{A} X2$$
+	\noindent
+	and then we proceed recursively to prove that $\bigvee Y2 = \bigvee s^{\mid 2} \otimes^\omega_\mathcal{A} X2$.
 \end{proof}
-This result is a straightforward adaptation of Theorem~\ref{theo:lexiSLM}.
+
+%Next result is instead an adaptation of Theorem~\ref{prop:lexiRes}
 
 \begin{proposition}\label{prop:lexiResOmega}
 	Let $\mathcal{A}$ be a residuated POM with bottom $\bot_\mathcal{A}$.
@@ -1047,9 +1047,9 @@ This result is a straightforward adaptation of Theorem~\ref{theo:lexiSLM}.
 	\]
 \end{proposition}
 
-It follows from Theorem~\ref{prop:lexiRes}, via the obvious extension of Lemma~\ref{limit}.
-Note that $\top_{Lex^\omega(\mathcal{A})} = \top_\mathcal{A}^\omega$
-if $\top_\mathcal{A} \in I(\mathcal{A})$, and  $\top_\mathcal{A} \cdot \bot_\mathcal{A}^\omega$ otherwise.
+The proof is an adaptation of Theorem~\ref{prop:lexiRes}, via the obvious extension of Lemma~\ref{limit}.
+Note that the top is $\top_\mathcal{A}^\omega$
+if $\top_\mathcal{A} \in I(\mathcal{A})$, and  $\langle \top_\mathcal{A} \rangle \cdot \bot_\mathcal{A}^\omega$ otherwise.
 
 \section{Conclusions}\label{sec:conclusion}
 In this paper we considered a framework for soft constraint formalisms based on a residuated monoid of partially ordered preferences.  
