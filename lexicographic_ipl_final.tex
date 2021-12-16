@@ -813,21 +813,21 @@ a more operational definition. % of such POMs.
 	$a_{j} <_\mathcal{A}  b_{j}$.
 \end{proposition}
 \begin{proof}
-	The proof is by induction on $k$. Concerning the order, it is straightforward.
+	The proof is by induction on $k$. Concerning the order, it is immediate.
 	Thus, let us look at the set of elements. For $k = 1$ it is obvious.
 	Let us assume it true for $k = n$, that is,
 	$A^n_L = \bigcup_{i < n}I(A)^i \times A \times \{\bot_\mathcal{A}\}^{n-1-i}$ .
 	Now, 
 	$A^{n+1}_L =  I(A) \times A^{n}_L  \cup C(A) \times \{\bot_\mathcal{A}\}^{n} =
 	\bigcup_{i < n}I(A)^{i+1} \times A \times \{\bot_\mathcal{A}\}^{n-1-i} \cup C(A) \times \{\bot_\mathcal{A}\}^{n} = %\newline
-	\bigcup_{i < n+1}I(A)^{i} A \{\bot_\mathcal{A}\}^{n-i}$
+	\bigcup_{i < n+1}I(A)^{i} \times A \times \{\bot_\mathcal{A}\}^{n-i}$
 	and we are done, where the latter equality holds since
-	$I(A)\{\bot_\mathcal{A}\}^{n+1} \subseteq \bigcup_{i < n}I(A)^{i+1} A \{\bot_\mathcal{A}\}^{n-i}$
+	$I(A) \times \{\bot_\mathcal{A}\}^{n+1} \subseteq \bigcup_{i < n}I(A)^{i+1} \times A \times \{\bot_\mathcal{A}\}^{n-i}$
 	and $A = I(A) \cup C(A)$.
 \end{proof}
 
 As for the binary product, the top element can be 
-either $\langle \top_\mathcal{A}, \bot_\mathcal{A}, \ldots, \bot_\mathcal{A}  \rangle$ or $\top^k_\mathcal{A}$,
+either $\top_\mathcal{A} \cdot \bot^{k-1}_\mathcal{A}$ or $\top^k_\mathcal{A}$,
 depending if $\top_\mathcal{A} \in C(\mathcal{A})$ or $\top_\mathcal{A} \in I(\mathcal{A})$.
 %
 We can exploit the result above also to provide a simple characterisation of collapsing elements.
@@ -843,8 +843,8 @@ We can exploit the result above also to provide a simple characterisation of col
 
 We now move to distributivity. 
 Given a tuple $t = \langle a_1, \ldots, a_k \rangle$ of elements in $A^k$, we denote with $t_i$ its 
-$i$-th component $a_i$ and with $t_{\mid i}$ its prefix $\langle a_1, \ldots, a_i \rangle$, with the obvious 
-generalisation of the latter for a set $X \subseteq A^k$.
+$i$-th component $a_i$ and with $t_{\mid i}$ its prefix $\langle a_1, \ldots, a_i \rangle$,
+with the obvious generalisation of the latter for a set $X \subseteq A^k$.
 %noting that $a_1 = a_{\mid 1}$.
 
 \begin{theorem}\label{theo:lexiSLM}
@@ -854,35 +854,15 @@ generalisation of the latter for a set $X \subseteq A^k$.
          we have $(\bigvee X)_1 = \bigvee \{ a \mid \langle a \rangle \in X_{\mid 1}\}$
          and $(\bigvee X)_{i+1} = \bigvee \{ a \mid \langle (\bigvee X)_1, \ldots, (\bigvee X)_i, a \rangle \in X_{\mid i+1}\}$.
 \end{theorem}
-\begin{proof} [PROVA DA RIFARE]
-	We inductively define the LUB $\bigvee X$ of a set $X \subseteq Lex_k(A)$ as
-	\begin{itemize}
-		\item $(\bigvee X)_1 = \bigvee X_1 = \bigvee \{ y \mid y \in X_{\mid 1}\}$
-		\item $(\bigvee X)_{i+1} = \bigvee \{ y \mid (\bigvee X)_1 \ldots (\bigvee X)_i y \in X_{\mid i+1}\}$
-	\end{itemize}
-	
-	Now, $\bigvee X$ is clearly a suitable candidate, since $x \leq_k \bigvee X$ for all 
-	$x \in X$. Minimality is proved inductively by exploiting the analogous 
-	definition of $\leq_k$.
-	
-	Concerning distributivity, we need to show that
-	$(\bigvee a \otimes^k X)_n = a_n \otimes (\bigvee X)_n$ holds for all $n \leq k$.
-	We proceed by induction on $n$. If $n = 1$, this boils down to the distributivity of 
-	the underlying monoid, since
-	$$(\bigvee a \otimes^k X)_1 = \bigvee (a \otimes^k X)_1 = \bigvee \{ y \mid y \in (a \otimes^k X)_{\mid 1}\} =$$
-	$$\bigvee \{ y \mid \exists z \in X_{\mid 1}.\ y = a_1 \otimes z\} = \bigvee \{ a_1 \otimes z \mid z \in X_{\mid 1}\}$$
-	and 
-	$$ a_1 \otimes (\bigvee X)_1 = a_1 \otimes \bigvee \{ y \mid y \in X_{\mid 1}\}  = \bigvee \{ a_1 \otimes y \mid y \in X_{\mid 1}\}$$
-	
-	Now, let us assume that it holds for $n$. Now we have 
-	$$(\bigvee a \otimes^k X)_{n+1} = \bigvee \{ y \mid (\bigvee a \otimes^k X)_1 \ldots (\bigvee a \otimes^k X)_n y \in (a \otimes^k X)_{\mid n+1}\} =$$
-	$$ \bigvee \{ y \mid \exists z \in X_{n+1}.\ y = a_{n+1} \otimes z \wedge a_1 \otimes (\bigvee X)_1 \ldots a_n \otimes (\bigvee X)_n y \in (a \otimes^k X)_{\mid n+1}\} =$$
-	$$ \bigvee \{ a_{n+1} \otimes z \mid (\bigvee X)_1 \ldots (\bigvee X)_n z \in X_{\mid n+1}\}$$
-	The latter equality obviously holds if $a_1 \ldots a_n$ are cancellative, yet it holds also otherwise since in that case 
-	$a_{n+1} = \bot$, hence both sides coincide with $\bot$. Finally
-	$$a_{n+1} \otimes (\bigvee X)_{n+1} = a_{n+1} \otimes \bigvee \{ y \mid (\bigvee X)_1 \ldots (\bigvee X)_n y \in X_{\mid n+1}\}  =$$
-	$$ \bigvee \{ a_{n+1} \otimes y \mid (\bigvee X)_1 \ldots (\bigvee X)_n y \in X_{\mid n+1}\}$$
-	%	which also coincides with $\bot$ if $a_{n+1} = \bot$.
+\begin{proof}
+	We know that $Lex^k(\mathcal{A})$ is a finitely distributive SLM (distributive CLM). We just need to check that
+	 the characterisation of $\bigvee X$ is correct. So, let with $t^{\mid i}$ its postfix $\langle a_i, \ldots, a_k \rangle$
+	 and $Y = \{ t \in X \mid t_1 = (\bigvee X)_1\} \subseteq X$. 
+	If $Y= \emptyset$ then $s_1 <^k_L (\bigvee X)_1$ for all $s \in S$ and we are done,
+	since $(\bigvee X)^{\mid 2} = \bot^{k-1}_\mathcal{A}$ ensures minimality.
+	Otherwise, clearly $\bigvee X = \bigvee Y$ and then we proceed 
+	recursively with  $Z =  \{ t \in Y \mid t_2 = (\bigvee Y)_2\} \subseteq Y$,
+	since again $Z = \emptyset$ or $\bigvee Y = \bigvee Z$.
 \end{proof}
 
 An operational characterisation for residuation can also be obtained. 
@@ -899,7 +879,7 @@ First, we need some additional definitions and technical lemmas.
 \end{definition}
 
 We adopt the usual convention $\delta(s,t)\downarrow$ and $\delta(s,t)\uparrow$ for 
-that partial function $\delta$ being respectively defined or undefined on the inputs $s,t$,
+the partial function $\delta$ being respectively defined or undefined on inputs $s$ and $t$,
 and the same for $\gamma$.
 
 %Recall that if $\langle A, \leq, \monop, \1 \rangle$ be a residuated POM, then 
@@ -945,14 +925,46 @@ $s \cdot t$ denotes string concatenation.
 \end{theorem}
 
 \begin{proof}
-XXXX
+As for binary products, we need to prove that for all $s \in A^k_L$ we have
+$$t \otimes^k_\mathcal{A} z \leq^k_L s \iff z \leq^k_L s \odiv^k_L t$$
+%
+Recall that $\otimes^k_\mathcal{A}$ works component-wise and 
+$s_i \odiv_\mathcal{A} t_i = \bigvee \{s \mid t_i \otimes_\mathcal{A} s \leq_\mathcal{A} s_i\}$.
+
+\begin{itemize}
+\item[$\Rightarrow$] Clearly $z_1 \leq_\mathcal{A} s_1 \odiv_\mathcal{A} t_1$ holds.
+If $z_1 <_\mathcal{A} s_1 \odiv_\mathcal{A} t_1$ we are done, so let 
+$z_1 = s_1 \odiv_\mathcal{A} t_1$: it implies either $\delta(s,t)\uparrow$ or $\delta(s,t) \geq 1$.
+If $z_1 \in C(\mathcal{A)}$ then $\delta(s,t) = \gamma(s,t) = 1$ and we are done, 
+since it implies $z^{\mid 2} = \bot^{k-1}_\mathcal{A}$, so let $z_1 = s_1 \odiv_\mathcal{A} t_1 \in I(\mathcal{A)}$.
+If $\delta(s,t) = 1$ then having chosen $\top_{Lex^{k-\delta(s,t)}(\mathcal{A})}$ we are done, so let $\delta(s,t) > 1$.
+We can then repeat the argument recursively on $z^{\mid 2}$ and $s^{\mid 2} \odiv^{k-1}_\mathcal{A} t^{\mid 2}$, 
+and we are done.
+
+\item[$\Leftarrow$]
+Clearly $t_1 \otimes_\mathcal{A} z_1 \leq_\mathcal{A} s_1$ holds.
+If $t_1 \otimes_\mathcal{A} z_1 <_\mathcal{A} s_1$ we are done, so let 
+$t_1 \otimes_\mathcal{A} z_1 = s_1$: it implies $t_1 \in D(s_1)$ and thus either $\delta(s,t)\uparrow$ or $\delta(s,t) > 1$.
+%If $a \in C(\mathcal{A)}$ then 
+%$b = \bot_\mathcal{B}$ and we are done, so let $a \in I(\mathcal{A)}$.
+If $s_1 \odiv_\mathcal{A} t_1 \in C(A)$ then either $\gamma(s,t) \uparrow$ or $\gamma(s,t)=1$
+and we are done, since it implies $\gamma(s,t)\uparrow$ and $\delta(s,t)\uparrow$,
+so let $s_1 \odiv_\mathcal{A} t_1 \in I(A)$.
+We can then repeat the argument recursively on $t^{\mid 2} \otimes^{k-1} z^{\mid 2}$ and
+$s^{\mid 2}$, and we are done,
+since $t_1 \in D(s_1)$,
+$s_1 \odiv_\mathcal{A} t_1 \in I(A)$ 
+and $t^{\mid 2} \otimes^{k-1} z^{\mid 2} \leq^{k-1}_L s^{\mid 2}$
+implies 
+$t \otimes^k_\mathcal{A} z \leq^k_L s$.
+\end{itemize}
 \end{proof}
 
 Note that $\top_{Lex^k(\mathcal{A})} = \top^k_\mathcal{A}$
 if $\top_\mathcal{A} \in I(A)$, and  $\top_\mathcal{A} \cdot \bot^{k-1}_\mathcal{A}$ 
 otherwise.
 
-\subsection{$\omega$-iterated product}\label{sec:infinite}
+\subsection{$\omega$-iterated product [DA RIAGGIUSTARE]}\label{sec:infinite}
 We can now move to POMs whose elements are tuples of infinite length.
 As for the finite case, for a POM $\mathcal{A}$ we denote by $\mathcal{A}^\omega$
 the POM whose elements are tuples of infinite length
@@ -987,7 +999,37 @@ family of POMs of finite tuples.
          we have $(\bigvee X)_1 = \bigvee \{ a \mid \langle a \rangle \in X_{\mid 1}\}$
          and $(\bigvee X)_{i+1} = \bigvee \{ a \mid \langle (\bigvee X)_1, \ldots, (\bigvee X)_i, a \rangle \in X_{\mid i+1}\}$.
 \end{proposition}
-
+\begin{proof}
+	
+	We inductively define the LUB $\bigvee X$ of a set $X \subseteq Lex_k(A)$ as
+	\begin{itemize}
+		\item $(\bigvee X)_1 = \bigvee X_1 = \bigvee \{ y \mid y \in X_{\mid 1}\}$
+		\item $(\bigvee X)_{i+1} = \bigvee \{ y \mid (\bigvee X)_1 \ldots (\bigvee X)_i y \in X_{\mid i+1}\}$
+	\end{itemize}
+	
+	Now, $\bigvee X$ is clearly a suitable candidate, since $x \leq_k \bigvee X$ for all 
+	$x \in X$. Minimality is proved inductively by exploiting the analogous 
+	definition of $\leq_k$.
+	
+	Concerning distributivity, we need to show that
+	$(\bigvee a \otimes^k X)_n = a_n \otimes (\bigvee X)_n$ holds for all $n \leq k$.
+	We proceed by induction on $n$. If $n = 1$, this boils down to the distributivity of 
+	the underlying monoid, since
+	$$(\bigvee a \otimes^k X)_1 = \bigvee (a \otimes^k X)_1 = \bigvee \{ y \mid y \in (a \otimes^k X)_{\mid 1}\} =$$
+	$$\bigvee \{ y \mid \exists z \in X_{\mid 1}.\ y = a_1 \otimes z\} = \bigvee \{ a_1 \otimes z \mid z \in X_{\mid 1}\}$$
+	and 
+	$$ a_1 \otimes (\bigvee X)_1 = a_1 \otimes \bigvee \{ y \mid y \in X_{\mid 1}\}  = \bigvee \{ a_1 \otimes y \mid y \in X_{\mid 1}\}$$
+	
+	Now, let us assume that it holds for $n$. Now we have 
+	$$(\bigvee a \otimes^k X)_{n+1} = \bigvee \{ y \mid (\bigvee a \otimes^k X)_1 \ldots (\bigvee a \otimes^k X)_n y \in (a \otimes^k X)_{\mid n+1}\} =$$
+	$$ \bigvee \{ y \mid \exists z \in X_{n+1}.\ y = a_{n+1} \otimes z \wedge a_1 \otimes (\bigvee X)_1 \ldots a_n \otimes (\bigvee X)_n y \in (a \otimes^k X)_{\mid n+1}\} =$$
+	$$ \bigvee \{ a_{n+1} \otimes z \mid (\bigvee X)_1 \ldots (\bigvee X)_n z \in X_{\mid n+1}\}$$
+	The latter equality obviously holds if $a_1 \ldots a_n$ are cancellative, yet it holds also otherwise since in that case 
+	$a_{n+1} = \bot$, hence both sides coincide with $\bot$. Finally
+	$$a_{n+1} \otimes (\bigvee X)_{n+1} = a_{n+1} \otimes \bigvee \{ y \mid (\bigvee X)_1 \ldots (\bigvee X)_n y \in X_{\mid n+1}\}  =$$
+	$$ \bigvee \{ a_{n+1} \otimes y \mid (\bigvee X)_1 \ldots (\bigvee X)_n y \in X_{\mid n+1}\}$$
+	%	which also coincides with $\bot$ if $a_{n+1} = \bot$.
+\end{proof}
 This result is a straightforward adaptation of Theorem~\ref{theo:lexiSLM}.
 
 \begin{proposition}\label{prop:lexiResOmega}
