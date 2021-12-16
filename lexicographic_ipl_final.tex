@@ -88,7 +88,7 @@
 	Residuation theory concerns the study of partially ordered algebraic structures, most often just monoids,
 	equipped with a weak inverse for the monoidal operator.
 	%
-	One of its area of application is Constraint Programming, whose 
+	One of its area of application is constraint programming, whose 
 	key requirement is the presence of an aggregator operator for combining preferences.
 	%
 	Given a residuated monoid of preferences, this paper shows how to build a new residuated monoid 
@@ -630,13 +630,13 @@ We now consider lexicographic orders, exploiting the results in Section~\ref{sec
 We first discuss such orders for binary products, then we move to iterated products, 
 and we close with $\omega$-iterated products, i.e., tuples of infinite length.
 
-\subsection{Binary products}\label{sec:lexico}
+\subsection{Binary products}\label{sec:bynary}
 
 This section reframes and streamlines For the new definition of collapsing elements some results originally
 introduced in~\cite{GadducciHMW13}. Given a partial order $\leq$ we denote by $<$ the associated strict 
 partial order: the former can be recovered from the latter by closing with respect to reflexivity.
 
-\begin{proposition}\label{def:lexBI}
+\begin{proposition}\label{prop:lexBI}
 	Let $\mathcal{A}$, $\mathcal{B}$ be POMs with bottom elements $\bot_\mathcal{A}$ and $\bot_\mathcal{B}$.
 	%
 	Then the tuple $Lex(\mathcal{A}, \mathcal{B}) = 
@@ -937,7 +937,7 @@ If $z_1 <_\mathcal{A} s_1 \odiv_\mathcal{A} t_1$ we are done, so let
 $z_1 = s_1 \odiv_\mathcal{A} t_1$: it implies either $\delta(s,t)\uparrow$ or $\delta(s,t) \geq 1$.
 If $z_1 \in C(\mathcal{A)}$ then $\delta(s,t) = \gamma(s,t) = 1$ and we are done, 
 since it implies $z^{\mid 2} = \bot^{k-1}_\mathcal{A}$, so let $z_1 = s_1 \odiv_\mathcal{A} t_1 \in I(\mathcal{A)}$.
-If $\delta(s,t) = 1$ then having chosen $\top_{Lex^{k-\delta(s,t)}(\mathcal{A})}$ we are done, so let $\delta(s,t) > 1$.
+If $\delta(s,t) = 1$ then, by having chosen $\top_{Lex^{k-\delta(s,t)}(\mathcal{A})}$ we are done, so let $\delta(s,t) > 1$.
 We can then repeat the argument recursively on $z^{\mid 2}$ and $s^{\mid 2} \odiv^{k-1}_\mathcal{A} t^{\mid 2}$, 
 and we are done.
 
