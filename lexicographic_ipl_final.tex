@@ -393,7 +393,7 @@ respectively.
 	However, the equality does not hold,
 	%as suggested by Lemma~\ref{someProps},
 	e.g. in the Cartesian product $\mathcal{N}^2$ of the CLM  
-	$\mathcal{N} = \langle \mathbb{N} \cup \{\infty\}, \geq, +, 0 \rangle$ with itself.
+	$\mathcal{N} = \langle \mathbb{N} \cup \{\infty\}, \geq,$ $+, 0 \rangle$ with itself.
 	Also, 
 	$a \odiv \bigvee X \leq \bigwedge (a \odiv X)$
 	whenever the latter exists. % as it does in CLMs.
@@ -579,7 +579,7 @@ Clearly, $C'(A) \subseteq C(A)$. However, we can replicate Lemma~\ref{ideal}.
 %
 %First, we say that $\times$ is tone preserving i 
 
-\begin{lemma}
+\begin{lemma}\label{lemma:six}
 	Let $\langle A, \monop, \1 \rangle$ be a monoid
 	and $I'(A) = A \setminus C'(A)$.
 	%
@@ -595,16 +595,16 @@ Explicitly, $I'(A) = \{ c \mid \forall a, b \in A.\ a \otimes c = b \otimes c \i
 The definitions we encounter in the next section 
 could then be rephrased using 
 $I'(A)$ and $C'(A)$ with minimal adjustments, thus confirming the proposal
-in~\cite{GadducciHMW13}.\footnote{And in fact, the lemma holds also for 
+in~\cite{GadducciHMW13}.\footnote{And in fact, the Lemma~\ref{lemma:six} holds also for 
 	a property that is weaker than monotonicity: it suffices that 
 	$\forall a, b, c.\ a \leq b \implies (a \otimes c \leq b \otimes c) \vee (b \otimes c \leq a \otimes c)$.
 }
 
 However, what is in fact noteworthy is that the two approaches are coincident
-whenever distributivity holds, as shown by the lemma below.
+whenever distributivity holds, as shown by  Lemma~\ref{lemma:seven}.
 %\todo{dire dove differiscono}
 
-\begin{lemma}
+\begin{lemma}\label{lemma:seven}
 	Let $\langle A, \leq, \monop, \1 \rangle$ be a finitely distributive SLM.
 	%
 	Then $C'(A) = C(A)$.
@@ -709,7 +709,7 @@ and $X_\mathcal{B} = \{ b \mid \langle \bigvee X_\mathcal{A}, b \rangle \in X\}$
 	$$\{ b \otimes_\mathcal{B} z \mid  \bigvee X_\mathcal{A} \in X_\mathcal{A}  \wedge z \in X'_\mathcal{B}\} =
 	    b \otimes_\mathcal{B} \{ z \mid \langle \bigvee X_\mathcal{A}, z \rangle \in X \} = b \otimes_\mathcal{B} X_\mathcal{B}$$
 	\noindent
-	and thus by distributivity of $\otimes_\mathcal{B}$ we have $\bigvee Y_\mathcal{B} = b \otimes_\mathcal{B} \bigvee X_\mathcal{B}$.
+	and thus, by the distributivity of $\otimes_\mathcal{B}$ we have $\bigvee Y_\mathcal{B} = b \otimes_\mathcal{B} \bigvee X_\mathcal{B}$.
 \end{proof}
 
 Since $Lex(\mathcal{A},\mathcal{B})$ is a distributive CLM if so are $\mathcal{A}$ and $\mathcal{B}$, it is also residuated.
