@@ -1003,7 +1003,7 @@ in $\{\bot_\mathcal{A}\}^\omega$.
 	$X \subseteq Lex^\omega(\mathcal{A})$ we have $s \otimes^\omega_\mathcal{A} \bigvee X = \bigvee s \otimes^\omega_\mathcal{A} X$, 
 	with $s \otimes^\omega_\mathcal{A} X = \{ s \otimes^\omega_\mathcal{A} t \mid t \in X\}$.
 	
-	We retrace the steps of Proposition~\ref{def:lexBI}, so let $Y = \{ s \otimes^\omega_\mathcal{A} t \mid t \in X\}$..
+	We retrace the steps of Proposition~\ref{def:lexBI}, so let $Y = \{ s \otimes^\omega_\mathcal{A} t \mid t \in X\}$.
 	We have that 
 	$(s \otimes^\omega_\mathcal{A} \bigvee X)_1 = s_1 \otimes_\mathcal{A} (\bigvee X)_1 = s_1 \otimes_\mathcal{A} \bigvee X_1
 	= \bigvee s_1 \otimes X_1 =  \bigvee Y_1 = (\bigvee Y)_1$
@@ -1052,9 +1052,10 @@ Note that the top is $\top_\mathcal{A}^\omega$
 if $\top_\mathcal{A} \in I(\mathcal{A})$, and  $\langle \top_\mathcal{A} \rangle \cdot \bot_\mathcal{A}^\omega$ otherwise.
 
 \section{Conclusions}\label{sec:conclusion}
-In this paper we considered a framework for soft constraint formalisms based on a residuated monoid of partially ordered preferences.  
+We considered a framework for soft constraint formalisms based on a residuated monoid of partially ordered preferences.  
 %
-More specifically, our focus was to show that the framework can include also lexicographic orders.
+Our focus was to show that the framework can include also lexicographic orders extended to tuples of any length, by systematising the approach initiated in \cite{sca}.
+Such infinite tuples can be used, for example, with infinitely many timed-variables, therefore associated with an infinite stream of preference. An application is represented by the definition of (constraint) automata accepting an infinite data stream as input~\cite{sca}.
 
 Despite the practical relevance of these orders, the valued structures for constraints proposed in the literature, 
 such as the pioneering~\cite{jacm97,schiex}, cannot straightforwardly deal 
@@ -1066,6 +1067,10 @@ that need preference removal, such as arc consistency, where values need to be m
 The paper shows that the resolution techniques devised for this richer framework can tackle also lexicographic orders.
 
 Our current work is on the design of specific heuristics to specialise such techniques to constraint satisfaction problems involving these orders. 
+
+
+\section*{Acknowledgements}
+We would like to thank the anonymous reviewers for pointing us to a simpler and clearer approach to proving lexicographic orders of infinite length. The first author \textcolor{red}{PROGETTI}, and the second author was supported by GNCS – ``Gruppo Nazionale per il Calcolo Scientifico'' - INdAM.
 
 % (see Section~\ref{sec:bucket}). 
 %
