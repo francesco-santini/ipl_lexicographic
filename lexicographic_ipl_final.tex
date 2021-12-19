@@ -229,8 +229,7 @@ for an introduction and a comparison with other proposals.
 %We write 
 The LUB of a subset $X \subseteq A$ is denoted $\bigvee X$, and it is unique. 
 Note that we require the existence of $\bigvee \emptyset$, which is the bottom
-of the order, denoted as $\bot$, and sometimes we will talk about a PO with bottom element
-(POB).
+of the order, denoted as $\bot$, and sometimes we will talk about a PO with bottom element.
 The existence of LUBs for any subset of $A$ (thus including $\emptyset$) guarantees that 
 CLs also have greatest lower bounds (GLBs) for any subset $X$ of $A$: 
 it will be denoted by $\bigwedge X$. 
@@ -275,7 +274,7 @@ $\bigvee A$ corresponds to the top of the order, denoted as $\top$.
 	$\langle A, \leq \rangle$ is a PO and $\langle A, \monop, \1 \rangle$ a monoid.
 	%
 	A semi-lattice monoid (SLM) and a complete lattice monoid (CLM) are 
-	POMs such that their underlying PO is a SL, a CL respectively.
+	POMs such that the underlying PO is a SL, a CL respectively.
 \end{definition}
 
 For ease of notation, we use infix operators: $a \monop b$ stands for $\monop(a,b)$.
@@ -360,8 +359,8 @@ In the following, we will sometimes write $a \otimes X$ for the set  $\{a \monop
 	In particular, in the following we consider the Cartesian product $\mathcal{Z}^2 = \mathcal{Z} \times \mathcal{Z}$:
 	%of $\langle \mathbb{Z} \cup \{\pm \infty\}, \leq, +, 0 \rangle$ with itself: 
 	its set of
-	elements is $(\mathbb{Z} \cup \{\pm \infty\})^2$, the identity element is $(0,0)$,
-	and the top and bottom elements are $(+\infty, +\infty)$ and $(-\infty, -\infty)$, respectively.
+	elements is $(\mathbb{Z} \cup \{\pm \infty\})^2$, the identity element is $\langle 0,0 \rangle$,
+	and the top and bottom elements are $\langle +\infty, +\infty \rangle$ and $\langle -\infty, -\infty rangle$, respectively.
 \end{remark}
 
 \subsection{Residuated monoids}
@@ -403,7 +402,7 @@ respectively.
 Let us consider the powerset SLM $\mathcal{P}$ of Example~\ref{ex:powerset}. 
 Given subsets $A$ and $B$ of $V$, their residuation $A \odiv B$ 
 is the largest $C$ such that $B \cap C \subseteq A$, that is $(V \setminus B) \cup A$. From the point of view
-of the set-theoretical interpretation of boolean logics, it corresponds to the semantics of the formula $B \rightarrow A$.
+of the set-theoretical interpretation of Boolean logics, it corresponds to the semantics of the formula $B \rightarrow A$.
 \end{example}
 
 \begin{remark}
@@ -515,8 +514,8 @@ All the proofs are straightforward, and we denote $C(A)$ as the set of \emph{col
 elements of $A$. 
 
 Note that an analogous closure property does not hold for LUBs. With an abuse of notation,
-for a POM $\mathcal{A}$ we will often denote as $C(\mathcal{A})$ and $I(\mathcal{A})$ the 
-sets of collapsing and cancellative elements, respectively.
+for a POM $\mathcal{A}$ we will often denote as $C(\mathcal{A})$ and $I(\mathcal{A})$ both the POMs 
+and the sets of collapsing and cancellative elements, respectively.
 
 \begin{example}\label{flat}
 	Consider
@@ -632,7 +631,7 @@ and we close with $\omega$-iterated products, i.e., tuples of infinite length.
 
 \subsection{Binary products}\label{sec:bynary}
 
-This section reframes and streamlines For the new definition of collapsing elements some results originally
+This section reframes and streamlines for the new definition of collapsing elements some results originally
 introduced in~\cite{GadducciHMW13}. Given a partial order $\leq$ we denote by $<$ the associated strict 
 partial order: the former can be recovered from the latter by closing with respect to reflexivity.
 
@@ -682,7 +681,7 @@ and $X_\mathcal{B} = \{ b \mid \langle \bigvee X_\mathcal{A}, b \rangle \in X\}$
 \end{proposition}
 \begin{proof}
 	Now, $\bigvee X$ is clearly the LUB of $X$ with respect to $\leq_{\mathcal{A} \times \mathcal{B}}$,
-	just that that $\bigvee X =  \langle \bigvee X_\mathcal{A}, \bot_\mathcal{B} \rangle$ if 
+	just note that $\bigvee X =  \langle \bigvee X_\mathcal{A}, \bot_\mathcal{B} \rangle$ if 
 	$X_\mathcal{B} = \emptyset$, which may occur if $x <_\mathcal{A} \bigvee X_\mathcal{A}$ for all 
 	$x \in X_\mathcal{A}$.
 
@@ -718,11 +717,11 @@ Since $Lex(\mathcal{A},\mathcal{B})$ is a distributive CLM if so are $\mathcal{A
 	(see Remark~\ref{natural}),
 	and the CLM $Lex(\mathcal{N},\mathcal{N})$. Clearly $C(\mathcal{N}) = \{+\infty\}$. We then have for example
 	that
-	$(3, 6) \odiv_L (4, 2) = \bigvee \{(x, y) \mid (4 + x, 2 + y) \leq_L (3, 6)\} = (0,0)$.
-	Indeed, $(4 + x, 2 + y) \leq_L (3, 6)$ holds for any possible choice of $(x, y)$,
-	since $4 + x <_\mathcal{N} 3$ for all $x$, hence $(0,0)$ as the result.
+	$\langle 3, 6 \rangle \odiv_L \langle 4, 2 \rangle = \bigvee \{\langle x, y \rangle \mid \langle 4 + x, 2 + y \rangle \leq_L \langle 3, 6 \rangle\} = \langle 0,0 \rangle$.
+	Indeed, $\langle 4 + x, 2 + y \rangle \leq_L \langle 3, 6 \rangle$ holds for any possible choice of $\langle x, y \rangle$,
+	since $4 + x <_\mathcal{N} 3$ for all $x$, hence $\langle 0,0 \rangle$ as the result.
 	%
-	Note that we would have obtained $(0, 4)$ for the CLM $\mathcal{N}^2$ of the Cartesian product.
+	Note that we would have obtained $\langle 0, 4 \rangle$ for the CLM $\mathcal{N}^2$ of the Cartesian product.
 \end{example}
 
 Indeed, this can be proved in general for POMs. As a shorthand, given a residuated POM 
@@ -857,7 +856,7 @@ with the obvious generalisation of the latter for a set $X \subseteq A^k$.
 	We know that $Lex^k(\mathcal{A})$ is a finitely distributive SLM (distributive CLM). We just need to check that
 	 the characterisation of $\bigvee X$ is correct. So, let with $t^{\mid i}$ its suffix $\langle a_i, \ldots, a_k \rangle$
 	 and $Y = \{ t \in X \mid t_1 = (\bigvee X)_1\} \subseteq X$. 
-	If $Y= \emptyset$ then $s_1 <^k_L (\bigvee X)_1$ for all $s \in S$ and we are done,
+	If $Y= \emptyset$ then $s_1 <^k_L (\bigvee X)_1$ for all $s \in X$ and we are done,
 	since $(\bigvee X)^{\mid 2} = \bot^{k-1}_\mathcal{A}$ ensures minimality.
 	Otherwise, clearly $\bigvee X = \bigvee Y$ and then we proceed 
 	recursively with  $Z =  \{ t \in Y \mid t_2 = (\bigvee Y)_2\} \subseteq Y$,
@@ -872,7 +871,7 @@ First, we need some additional definitions and technical lemmas.
 	be a residuated POM with bottom and $s, t \in A^k_L$. Then 
 	%		\item $\beta(a) = min\{ i \mid a_i \in C(A)\}$
 	we define the partial functions 
-	$\gamma(s, t) = \min\{ i \mid (s_i \odiv t_i) \in C(A)\}$
+	$\gamma(s, t) = \min\{ i \mid s_i \odiv t_i \in C(A)\}$
 	and $\delta(s, t) = \min\{ i \mid (s_i \odiv t_i) \otimes s_i < t_i\}$.
 %	with the convention that the result is $k+1$ whenever the set if empty.
 \end{definition}
@@ -901,7 +900,7 @@ and the same for $\gamma$.
 \end{proof}
 
 It then suffices to consider only the cases identified by the proposition above, and
-$s \cdot t$ denotes string concatenation.
+in the result below we let $s \cdot t$ denotes string concatenation.
 %The key remark for the following propositions is that since in a residuated POM 
 %the $\otimes$ operator is monotone, 
 %we have that $c \leq a \odiv b$ implies $b \otimes c \leq (a \odiv b) \otimes b$.
@@ -949,11 +948,11 @@ $t_1 \otimes_\mathcal{A} z_1 = s_1$: it implies $t_1 \in D(s_1)$ and thus either
 If $s_1 \odiv_\mathcal{A} t_1 \in C(A)$ then either $\gamma(s,t) \uparrow$ or $\gamma(s,t)=1$
 and we are done, since it implies $\gamma(s,t)\uparrow$ and $\delta(s,t)\uparrow$,
 so let $s_1 \odiv_\mathcal{A} t_1 \in I(A)$.
-We can then repeat the argument recursively on $t^{\mid 2} \otimes^{k-1} z^{\mid 2}$ and
+We can then repeat the argument recursively on $t^{\mid 2} \otimes^{k-1}_\mathcal{A} z^{\mid 2}$ and
 $s^{\mid 2}$, and we are done,
 since $t_1 \in D(s_1)$,
 $s_1 \odiv_\mathcal{A} t_1 \in I(A)$ 
-and $t^{\mid 2} \otimes^{k-1} z^{\mid 2} \leq^{k-1}_L s^{\mid 2}$
+and $t^{\mid 2} \otimes^{k-1}_\mathcal{A} z^{\mid 2} \leq^{k-1}_L s^{\mid 2}$
 implies 
 $t \otimes^k_\mathcal{A} z \leq^k_L s$.
 \end{itemize}
@@ -964,10 +963,10 @@ if $\top_\mathcal{A} \in I(A)$, and  $\top_\mathcal{A} \cdot \bot^{k-1}_\mathcal
 otherwise.
 
 \subsection{$\omega$-iterated orders}\label{sec:infinite}
-We can now move to POMs whose elements are tuples of infinite length.
+We now move to POMs whose elements are tuples of infinite length.
 As for the finite case, for a POM $\mathcal{A}$ we denote by $\mathcal{A}^\omega$
 the obvious POM whose elements are tuples of infinite length
-of elements in $\mathcal{A}$.
+of elements in $\mathcal{A}$ and $\otimes^\omega_\mathcal{A}$ is defined point-wise.
 
 \begin{proposition}
 Let $\mathcal{A}$ be a POM with bottom element $\bot_\mathcal{A}$.
@@ -1054,8 +1053,8 @@ if $\top_\mathcal{A} \in I(\mathcal{A})$, and  $\langle \top_\mathcal{A} \rangle
 \section{Conclusions}\label{sec:conclusion}
 We considered a framework for soft constraint formalisms based on a residuated monoid of partially ordered preferences.  
 %
-Our focus was to show that the framework can include also lexicographic orders extended to tuples of any length, by systematising the approach initiated in \cite{sca}.
-Such infinite tuples can be used, for example, with infinitely many timed-variables, therefore associated with an infinite stream of preferences. An application is represented by the definition of (constraint) automata accepting an infinite data stream as input~\cite{sca}.
+We proved that the framework can include lexicographic orders extended to tuples of any length, by systematising the approach initiated in \cite{sca}.
+Such tuples have been used in the definition of (constraint) automata accepting an infinite data stream as input~\cite{sca}.
 
 Despite the practical relevance of these orders, the valued structures for constraints proposed in the literature, 
 such as the pioneering~\cite{jacm97,schiex}, cannot straightforwardly deal 
@@ -1066,11 +1065,12 @@ that need preference removal, such as arc consistency, where values need to be m
 %
 The paper shows that the resolution techniques devised for this richer framework can tackle also lexicographic orders.
 
-Our current work is on the design of specific heuristics to specialise such techniques to constraint satisfaction problems involving these orders. 
+%Our current work is on the design of specific heuristics to specialise such techniques to constraint satisfaction problems involving these orders. 
 
 
-\section*{Acknowledgements}
-We would like to thank the anonymous reviewers for pointing us to a simpler and clearer approach to proving lexicographic orders of infinite length. The first author \textcolor{red}{PROGETTI}, and the second author was supported by GNCS – ``Gruppo Nazionale per il Calcolo Scientifico'' - INdAM.
+\paragraph*{Acknowledgements}
+We are grateful to the anonymous reviewers for pointing us to a simpler approach in tackling tuples of infinite length. 
+The research was partially supported by the MIUR PRIN 2017FTXR7S ``IT-MaTTerS'' and by GNCS-INdAM (``Gruppo Nazionale per il Calcolo Scientifico'').
 
 % (see Section~\ref{sec:bucket}). 
 %
