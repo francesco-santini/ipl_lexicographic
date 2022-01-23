@@ -88,7 +88,7 @@
 	Residuation theory concerns the study of partially ordered algebraic structures, most often just monoids,
 	equipped with a weak inverse for the monoidal operator.
 	%
-	One of its area of application is constraint programming, whose 
+	One of its areas of application is constraint programming, whose 
 	key requirement is the presence of an aggregator operator for combining preferences.
 	%
 	Given a residuated monoid of preferences, this paper shows how to build a new residuated monoid 
@@ -111,7 +111,7 @@ equipped with an operator that behaves as a weak inverse to the monoidal one, wi
 %the approximated solution of inequalities~\cite{resbook}. 
 %
 %Related to the latter, o
-One of the recent area of application of residuation theory is constraint programming. 
+One of the recent areas of application of residuation theory is constraint programming. 
 %
 Roughly, a soft constraint satisfaction problem
 %(\emph{SCSP}) 
@@ -221,7 +221,7 @@ for an introduction and a comparison with other proposals.
 	%$\langle A, \leq, \bot \rangle$ such that $\langle A, \leq \rangle$ is a PO and
 	%$\forall a \in A. \bot \leq a$.
 	%
-	A join semi-lattice (simply semi-lattice, SL) is a POs
+	A join semi-lattice (simply semi-lattice, SL) is a PO
 	such that any finite subset of $A$ has a least upper bound (LUB);
 	a complete lattice (CL) is a PO such that any subset of A has a LUB.
 \end{definition}
@@ -374,10 +374,10 @@ The set of sub-solutions of an equation contains also the
 possible solutions, whenever they exist, and in that case the maximal element is also a 
 solution.
 
-\begin{definition}[residuation]
+\begin{definition}[Residuation]
 	A residuated POM is a 5-tuple $\langle A,$ $\leq, \otimes,  \odiv, \1 \rangle$ such that
 	$\langle A, \leq \rangle$ is a PO,  $\langle A, \otimes, \1 \rangle$ is a monoid, and
-	$\odiv: A \times A \rightarrow A$ is a function such that $\forall a, b, c \in A.\ b \otimes c \leq a \iff c \leq a \odiv b$.
+	$\mathbin{\odiv} : A \times A \rightarrow A$ is a function such that $\forall a, b, c \in A.\ b \otimes c \leq a \iff c \leq a \mathbin{\odiv} b$.
 \end{definition}
 
 In the following, we will sometimes write $a \odiv X$ and $X \odiv a$
@@ -385,10 +385,10 @@ for the set  $\{a \odiv x \mid x \in X\}$ and  $\{x \odiv a \mid x \in X\}$,
 respectively.
 
 \begin{remark}\label{natural}
-	It is easy to show that residuation is monotone on the first argument and
+	Residuation is monotone on the first argument and
 	anti-monotone on the second. In fact, in an SLM 
 	$\bigvee (X \odiv a) \leq \bigvee X \odiv a$,
-	and the same in a CLM also with respect to infinite subsets.
+	and the same holds in a CLM also with respect to infinite subsets.
 	However, the equality does not hold,
 	%as suggested by Lemma~\ref{someProps},
 	e.g. in the Cartesian product $\mathcal{N}^2$ of the CLM  
@@ -523,7 +523,7 @@ and the sets of collapsing and cancellative elements, respectively.
 	%Better give the monoid a name, e.g., $N$ and use this. G.: \`E diventato esempio 5.}  
 	the monoid of natural numbers $\langle \mathbb N, +, 0 \rangle$ and 
 	the (non distributive) CLM $\mathcal{M} = \langle \mathbb{N} \cup \{\bot,\top\}, \emptyset, +, 0\rangle$ 
-	obtained by lifting the flat order (i.e., $a \not \leq b$ for any $a, b \in \mathbb N$ and 
+	obtained by lifting the flat order (i.e., $a \not \leq b$ for any $a \neq b \in \mathbb N$ and 
 	$a + \bot = \bot = \bot + \bot$ and $a + \top = \top$  for any $a \in \mathbb N \cup \{\top\}$).
 	We have $I(\mathcal{M}) =  \mathbb{N}$, yet $\langle \mathbb N, \emptyset, +, 0\rangle$ is not closed under LUBs. 
 	
@@ -650,7 +650,7 @@ partial order: the former can be recovered from the latter by closing with respe
 \end{proposition}
 
 \begin{proof}
-	Monoidality of $\monop_{\mathcal{A} \times \mathcal{B}}$ is given by being $I(\mathcal{A})$ a sub-monoid
+	Monoidality of $\monop_{\mathcal{A} \times \mathcal{B}}$ is given by  $I(\mathcal{A})$ being a sub-monoid
 	and $C(\mathcal{A})$ an ideal of $\mathcal{A}$, while $\leq_L$ being a partial order is straightforward.
 \end{proof}
 
@@ -857,7 +857,7 @@ with the obvious generalisation of the latter for a set $X \subseteq A^k$.
 	 the characterisation of $\bigvee X$ is correct. So, let with $t^{\mid i}$ its suffix $\langle a_i, \ldots, a_k \rangle$
 	 and $Y = \{ t \in X \mid t_1 = (\bigvee X)_1\} \subseteq X$. 
 	If $Y= \emptyset$ then $s_1 <^k_L (\bigvee X)_1$ for all $s \in X$ and we are done,
-	since $(\bigvee X)^{\mid 2} = \bot^{k-1}_\mathcal{A}$ ensures minimality.
+	since $(\bigvee X)_{\mid 2} = \bot^{k-1}_\mathcal{A}$ ensures minimality.
 	Otherwise, clearly $\bigvee X = \bigvee Y$ and then we proceed 
 	recursively with  $Z =  \{ t \in Y \mid t_2 = (\bigvee Y)_2\} \subseteq Y$,
 	since again $Z = \emptyset$ or $\bigvee Y = \bigvee Z$.
@@ -876,7 +876,7 @@ First, we need some additional definitions and technical lemmas.
 %	with the convention that the result is $k+1$ whenever the set if empty.
 \end{definition}
 
-We adopt the usual convention $\delta(s,t)\downarrow$ and $\delta(s,t)\uparrow$ for 
+We adopt the usual convention $\delta(s,t){\downarrow}$ and $\delta(s,t){\uparrow}$ for 
 the partial function $\delta$ being respectively defined or undefined on inputs $s$ and $t$,
 and the same for $\gamma$.
 
@@ -914,9 +914,9 @@ in the result below we let $s \cdot t$ denotes string concatenation.
 	\[
 	s \odiv^k_L t = 	\begin{cases}
 	\begin{array}{lcl}
-	s \odiv^k_\mathcal{A} t & & \mbox{if  } \gamma(s,t) \uparrow \wedge \delta(s,t) \uparrow \\
-	(s \odiv^k_\mathcal{A} t)_{\mid \delta(s,t)} \cdot \top_{Lex^{k-\delta(s,t)}(\mathcal{A})} & &  \mbox{if  } \gamma(s,t) \uparrow \vee \delta(s,t) < \gamma(s,t) \\
-	(s \odiv^k_\mathcal{A} t)_{\mid \gamma(s,t)} \cdot \bot^{k - \gamma(s, t)}_\mathcal{A} & & \mbox{if  } \delta(s,t)  \uparrow \vee \delta(s,t) = \gamma(s,t)
+	s \odiv^k_\mathcal{A} t & & \mbox{if  } \gamma(s,t){\uparrow} \wedge \delta(s,t){\uparrow} \\
+	(s \odiv^k_\mathcal{A} t)_{\mid \delta(s,t)} \cdot \top_{Lex^{k-\delta(s,t)}(\mathcal{A})} & &  \mbox{if  } \gamma(s,t){\uparrow} \vee \delta(s,t) < \gamma(s,t) \\
+	(s \odiv^k_\mathcal{A} t)_{\mid \gamma(s,t)} \cdot \bot^{k - \gamma(s, t)}_\mathcal{A} & & \mbox{if  } \delta(s,t){\uparrow} \vee \delta(s,t) = \gamma(s,t)
 	\end{array}
 	\end{cases}
 	\]
@@ -932,11 +932,11 @@ $s_i \odiv_\mathcal{A} t_i = \bigvee \{s \mid t_i \otimes_\mathcal{A} s \leq_\ma
 \begin{itemize}
 \item[$\Rightarrow$] Clearly $z_1 \leq_\mathcal{A} s_1 \odiv_\mathcal{A} t_1$ holds.
 If $z_1 <_\mathcal{A} s_1 \odiv_\mathcal{A} t_1$ we are done, so let 
-$z_1 = s_1 \odiv_\mathcal{A} t_1$: it implies either $\delta(s,t)\uparrow$ or $\delta(s,t) \geq 1$.
+$z_1 = s_1 \odiv_\mathcal{A} t_1$: it implies either $\delta(s,t){\uparrow}$ or $\delta(s,t) \geq 1$.
 If $z_1 \in C(\mathcal{A)}$ then $\delta(s,t) = \gamma(s,t) = 1$ and we are done, 
-since it implies $z^{\mid 2} = \bot^{k-1}_\mathcal{A}$, so let $z_1 = s_1 \odiv_\mathcal{A} t_1 \in I(\mathcal{A)}$.
+since it implies $z_{\mid 2} = \bot^{k-1}_\mathcal{A}$, so let $z_1 = s_1 \odiv_\mathcal{A} t_1 \in I(\mathcal{A)}$.
 If $\delta(s,t) = 1$ then, by having chosen $\top_{Lex^{k-\delta(s,t)}(\mathcal{A})}$ we are done, so let $\delta(s,t) > 1$.
-We can then repeat the argument recursively on $z^{\mid 2}$ and $s^{\mid 2} \odiv^{k-1}_\mathcal{A} t^{\mid 2}$, 
+We can then repeat the argument recursively on $z_{\mid 2}$ and $s_{\mid 2} \odiv^{k-1}_\mathcal{A} t_{\mid 2}$, 
 and we are done.
 
 \item[$\Leftarrow$]
