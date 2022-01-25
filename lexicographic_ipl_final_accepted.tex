@@ -384,22 +384,32 @@ In the following, we will sometimes write $a \odiv X$ and $X \odiv a$
 for the set  $\{a \odiv x \mid x \in X\}$ and  $\{x \odiv a \mid x \in X\}$,
 respectively.
 
-\begin{remark}\label{natural}
+\begin{remark}\label{inverse}
 	Residuation is monotone on the first argument and
 	anti-monotone on the second. In fact, in an SLM 
 	$\bigvee (X \odiv a) \leq \bigvee X \odiv a$,
 	and the same holds in a CLM also with respect to infinite subsets.
-	However, the equality does not hold,
-	%as suggested by Lemma~\ref{someProps},
-	e.g. in the Cartesian product $\mathcal{N}^2$ of the CLM  
-	$\mathcal{N} = \langle \mathbb{N} \cup \{\infty\}, \geq,$ $+, 0 \rangle$ with itself.
-	Also, 
-	$a \odiv \bigvee X \leq \bigwedge (a \odiv X)$
-	whenever the latter exists. % as it does in CLMs.
+	However, equality may not hold.
+
+	Consider e.g. the CLM $\mathcal{Z} = \langle \mathbb{Z} \cup \{\pm \infty\}, \leq, +, 0 \rangle$
+	of Example~\ref{ex:bipolar}. It is residuated with subtraction as the residuation operator,
+	with $+\infty \odiv +\infty = +\infty$ and  $z \odiv +\infty =  -\infty$ for all $z \in  \mathbb{Z} \cup \{-\infty\}$.
+	It suffices to take $X = \mathbb{Z}$ and $a = +\infty$.
+
+	Consider instead the CLM  
+	$\mathcal{N} = \langle \mathbb{N} \cup \{\infty\}, \geq,$ $+, 0 \rangle$.
+	It is residuated with capped subtraction as the residuation operator,
+	meaning that $m \odiv n = 0$ if $n \in [m, \infty]$, and $m - n$ otherwise,
+	putting $\infty - n = \infty$ for any $n \in \mathbb{N}$.
+%
+	The equality holds for $X \subseteq \{+\infty\}$. If this is not so, than 
+	$\bigvee X \in \mathbb{N}$ and $\bigvee X \odiv a \in \mathbb{N}$,
+	and now the equality follows by case inspection.
 \end{remark}
 
 \begin{example}
-Let us consider the powerset SLM $\mathcal{P}$ of Example~\ref{ex:powerset}. 
+\label{setCLM}
+Let us consider the powerset CLM $\mathcal{P}$ of Example~\ref{ex:powerset}. 
 Given subsets $A$ and $B$ of $V$, their residuation $A \odiv B$ 
 is the largest $C$ such that $B \cap C \subseteq A$, that is $(V \setminus B) \cup A$. From the point of view
 of the set-theoretical interpretation of Boolean logics, it corresponds to the semantics of the formula $B \rightarrow A$.
@@ -465,13 +475,16 @@ We close with a simple lemma relating residuation with the top and the bottom el
 \begin{remark}
 \label{usualNat}
 	Nothing can be stated for $\bot \odiv a$, since there could be elements that are 
-	$\bot$-divisors: see the CLM $\mathcal{N}^2$ 
-	in Remark~\ref{natural}, where 
-	$\langle \infty, 3\rangle  \otimes \langle 4, \infty \rangle = \langle \infty,\infty \rangle$. 
-	
-	Similarly, nothing can be stated for $a \odiv \top$: see the Cartesian 
-	product of the CLM $\mathcal{N}$ with its dual CLM
-	$\mathcal{O} = \langle \mathbb N \cup \{\infty\}, \leq, +, 0 \rangle$.
+	$\bot$-divisors. Similarly, nothing can be stated for $a \odiv \top$.
+	Consider e.g. the CLM $\mathcal{P}$ 
+	of Example~\ref{setCLM}: we have $\emptyset \odiv X = V\setminus X$
+	and $X \odiv V = X$; instead, in the CLM $\mathcal{Z}$ of Remark~\ref{inverse}
+	we have $-\infty \odiv n = -\infty = n \odiv +\infty$.
+%	$\langle \infty, 3\rangle  \otimes \langle 4, \infty \rangle = \langle \infty,\infty \rangle$. 
+	%
+%see the Cartesian 
+%	product of the CLM $\mathcal{N}$ with its dual CLM
+%	$\mathcal{O} = \langle \mathbb N \cup \{\infty\}, \leq, +, 0 \rangle$.
 \end{remark}
 
 %(see e.g.~\cite{ecai06} 
@@ -500,8 +513,8 @@ We  recall a well-known fact.
 	\label{ideal}
 	Let $\langle A, \monop, \1 \rangle$ be a monoid.
 	Then $C(A) = A\setminus I(A)$ is
-	a prime ideal (and thus, $\langle C(A), \monop, \1 \rangle$
-	and $\langle I(A), \monop, \1 \rangle$ are sub-monoids).
+	a prime ideal (and thus, $\langle C(A), \monop \rangle$ is a sub-semigroup
+	and $\langle I(A), \monop, \1 \rangle$ a sub-monoid).
 \end{lemma}
 
 Explicitly, $C(A) = \{ c \mid \exists a, b \in A.\ a \neq b \wedge a \otimes c = b \otimes c\}$.
@@ -522,15 +535,22 @@ and the sets of collapsing and cancellative elements, respectively.
 	%\todo{S.: Non ho trovato. p. 4, Ex. 4, $C(\mathbb{N} \times \mathbb{N})$: Is $C((\mathbb{N} \cup \{ \infty \})^2)$ meant?  
 	%Better give the monoid a name, e.g., $N$ and use this. G.: \`E diventato esempio 5.}  
 	the monoid of natural numbers $\langle \mathbb N, +, 0 \rangle$ and 
-	the (non distributive) CLM $\mathcal{M} = \langle \mathbb{N} \cup \{\bot,\top\}, \emptyset, +, 0\rangle$ 
-	obtained by lifting the flat order (i.e., $a \not \leq b$ for any $a \neq b \in \mathbb N$ and 
-	$a + \bot = \bot = \bot + \bot$ and $a + \top = \top$  for any $a \in \mathbb N \cup \{\top\}$).
-	We have $I(\mathcal{M}) =  \mathbb{N}$, yet $\langle \mathbb N, \emptyset, +, 0\rangle$ is not closed under LUBs. 
+	the (non distributive) CLM $\mathcal{M} = \langle \mathbb{N} \cup \{\bot,\top\}, \leq, +, 0\rangle$,
+	obtained by lifting of the flat order. In other words,  $\bot\ \leq a \leq \top$,
+	%and $a \not \leq b$ for any $a \neq b \in \mathbb N$, 
+	$a + \bot = \bot = \bot + \bot$, and $a + \top = \top$  for any $a \in \mathbb N \cup \{\top\}$.
+	We have $I(\mathcal{M}) =  \mathbb{N}$, yet $\langle \mathbb N, \leq, +, 0\rangle$ is not closed under LUBs. 
 	
-	Now, let us consider the distributive CLM
-	$\mathcal{O} = \langle \mathbb N \cup \{\infty\}, \leq, +, 0\rangle$ 
-	obtained by lifting the usual order (see Remark~\ref{usualNat}).
-	We have $I(\mathcal{O}) = \mathbb{N}$ and $\langle \mathbb N, \leq, +, 0\rangle$ is a finitely distributive SLM, yet
+%\comment{	
+%	Now, let us consider the distributive CLM
+%	$\mathcal{O} = \langle \mathbb N \cup \{\infty\}, \leq, +, 0\rangle$ 
+%	obtained by lifting the usual order. % (see Remark~\ref{usualNat}).
+%	We have $I(\mathcal{O}) = \mathbb{N}$ and $\langle \mathbb N, \leq, +, 0\rangle$ is a finitely distributive SLM, yet
+%	it is not closed under infinite LUBs.
+%	\todo{falso: serve -inf per POM}
+%}
+	Consider the CLM $\mathcal{Z}$ of Remark~\ref{usualNat}.	
+	We have $I(\mathcal{Z}) = \mathbb{Z}$ and $\langle \mathbb{Z}, \leq, +, 0\rangle$ is a finitely distributive SLM, yet
 	it is not closed under infinite LUBs.
 \end{example}
 
@@ -542,8 +562,9 @@ We now present a simple fact on Cartesian products  that is needed later on.
 \end{lemma}
 
 \begin{example}
+	\label{noLUBs}
 	Let us consider again the CLM $\mathcal{N} = \langle \mathbb N \cup \{\infty\}, \geq, +, 0 \rangle$ 
-	of Remark~\ref{natural} and the Cartesian product $\mathcal{N}^2$. 
+	of Remark~\ref{inverse} and the Cartesian product $\mathcal{N}^2$. 
 	Now $C(\mathcal{N}^2)$ is not closed under finite LUBs: it suffices to consider 
 	$X= \{\langle \infty, 3 \rangle, \langle 4, \infty \rangle\} \subseteq C(\mathcal{N}^2)$,
 	since $\bigvee X  = \langle 3,4 \rangle \not \in C(\mathcal{N}^2)$.
@@ -583,10 +604,10 @@ Clearly, $C'(A) \subseteq C(A)$. However, we can replicate Lemma~\ref{ideal}.
 	and $I'(A) = A \setminus C'(A)$.
 	%
 	Then $C'(\mathcal{A})$ is an ideal 
-	(and thus, $\langle C'(A), \monop, \1 \rangle$ is a sub-monoid).
+	(and thus, $\langle C'(A), \monop \rangle$ is a sub-semigroup).
 	If $\monop$ is monotone, then 
 	$C'(\mathcal{A})$ is a prime ideal
-	(and thus, also $\langle I'(A), \monop, \1 \rangle$ is a sub-monoid).
+	(and thus, $\langle I'(A), \monop, \1 \rangle$ is a sub-monoid).
 \end{lemma}
 
 Explicitly, $I'(A) = \{ c \mid \forall a, b \in A.\ a \otimes c = b \otimes c \implies a \not < b \}$.
@@ -680,29 +701,31 @@ where $X_\mathcal{A} = \{ a \mid \langle a, b \rangle \in X\}$
 and $X_\mathcal{B} = \{ b \mid \langle \bigvee X_\mathcal{A}, b \rangle \in X\}$.
 \end{proposition}
 \begin{proof}
-	Now, $\bigvee X$ is clearly the LUB of $X$ with respect to $\leq_{\mathcal{A} \times \mathcal{B}}$,
+	Now, $\bigvee X$ is clearly the LUB of $X$ with respect to $\leq_L$,
 	just note that $\bigvee X =  \langle \bigvee X_\mathcal{A}, \bot_\mathcal{B} \rangle$ if 
-	$X_\mathcal{B} = \emptyset$, which may occur if $x <_\mathcal{A} \bigvee X_\mathcal{A}$ for all 
-	$x \in X_\mathcal{A}$.
+	either $X_\mathcal{B} = \emptyset$, which occurs if $x <_\mathcal{A} \bigvee X_\mathcal{A}$ for all 
+	$x \in X_\mathcal{A}$, or $X_\mathcal{B} =  \{\bot_\mathcal{B}\}$, which occurs if 
+	$\bigvee X_\mathcal{A} \in X_\mathcal{A}$ is collapsing. 
 
 	Let us then move to distributivity. We need to show that
 	$\bigvee \langle a, b\rangle \otimes_{\mathcal{A} \times \mathcal{B}} X = \langle a, b\rangle \otimes_{\mathcal{A} \times \mathcal{B}}  (\bigvee X)$ holds,
 	with the latter equivalent to $\langle a \otimes_\mathcal{A} \bigvee X_\mathcal{A}, b \otimes_\mathcal{B} \bigvee X_\mathcal{B} \rangle$.
-	Now, $\langle a, b\rangle \otimes_{\mathcal{A} \times \mathcal{B}} X$ coincides with 
+	Now, $\langle a, b\rangle \otimes_{\mathcal{A} \times \mathcal{B}} X$ is defined as 
 	$Y = \{\langle a \otimes_\mathcal{A}  c,  b \otimes_\mathcal{B}  d \rangle \mid \langle c, d \rangle \in X\}$.
-	By distributivity of $\mathcal{A}$, we have that $\bigvee Y_\mathcal{A} = a \otimes_\mathcal{A} \bigvee X_\mathcal{A}$.
-	If $a$ is collapsing then we are done, since $b = \bot_\mathcal{B}$ and thus $b \otimes_\mathcal{B} \bigvee X_\mathcal{B} = 
-	\bigvee Y_\mathcal{B} = \bot_{B}$
-	even if either $X_\mathcal{B} \neq \emptyset$ or $Y_\mathcal{B} \neq \emptyset$. Otherwise, 
-	consider $X_\mathcal{B}$ and note that 
-	$$Y_\mathcal{B} = \{ c \mid \langle \bigvee Y_\mathcal{A}, c \rangle \in Y\}
-	= \{ c \mid \langle a \otimes_\mathcal{A} \bigvee X_\mathcal{A}, c \rangle \in \langle a, b\rangle \otimes_{\mathcal{A} \times \mathcal{B}} X \rangle \}$$
-	\noindent
-	Now, note that $\bigvee X_\mathcal{A} \not \in X_\mathcal{A}$ implies $X_\mathcal{B} = \emptyset$ as well as, since $a$ is cancellative, $Y_\mathcal{B} = \emptyset$.
-	If $X_\mathcal{B} = Y_\mathcal{B} = \emptyset$ we are done, so let us assume that $\bigvee X_\mathcal{A} \in X_\mathcal{A}$. Then
+	By distributivity of $\mathcal{A}$, we have that $\bigvee Y_\mathcal{A} = a \otimes_\mathcal{A} \bigvee X_\mathcal{A}$ and
+	$$Y_\mathcal{B} = \{ b \otimes_\mathcal{B} d \mid \langle \bigvee Y_\mathcal{A}, b \otimes_\mathcal{B} d \rangle \in Y\}
+	= \{ b \otimes_\mathcal{B} d \mid \langle a \otimes_\mathcal{A} \bigvee X_\mathcal{A}, b \otimes_\mathcal{B} d \rangle \in \langle a, b\rangle \otimes_{\mathcal{A} \times \mathcal{B}} X \rangle \}$$
+	If $a$ is collapsing then we are done, since $b = \bot_\mathcal{B}$ and $Y_\mathcal{B} \subseteq \{\bot_{B}\}$,
+	thus $b \otimes_\mathcal{B} \bigvee X_\mathcal{B} = 
+	\bigvee Y_\mathcal{B} = \bot_{B}$.
+	%even if either $X_\mathcal{B} \neq \emptyset$ or $Y_\mathcal{B} \neq \emptyset$. 
+	Let us assume that $a$ in cancellative.
+	Note that $\bigvee X_\mathcal{A} \not \in X_\mathcal{A}$ implies $X_\mathcal{B} = \emptyset$ as well as, since $a$ is cancellative, $Y_\mathcal{B} = \emptyset$.
+	Thus $\bigvee X_\mathcal{B} = \bigvee Y_\mathcal{B} =\bot_\mathcal{B}$ and we are done.
+	Finally, let us assume that $\bigvee X_\mathcal{A} \in X_\mathcal{A}$. Then
 %	$$\{ b \otimes_\mathcal{B} z \mid z \in X'_\mathcal{B} \wedge 
 %	      \langle a \otimes_\mathcal{A} \bigvee X_\mathcal{A}, b  \otimes_\mathcal{B} z \rangle \in \langle a, b\rangle \otimes_{\mathcal{A} \times \mathcal{B}} X \rangle \} =$$
-	$$Y_\mathcal{B} = \{ b \otimes_\mathcal{B}   d \mid \bigvee X_\mathcal{A} \in X_\mathcal{A} \wedge d \in X_\mathcal{B} \wedge 
+	$$Y_\mathcal{B} = \{ b \otimes_\mathcal{B}   d \mid \bigvee X_\mathcal{A} \in X_\mathcal{A} \wedge 
 	      \langle a \otimes_\mathcal{A} \bigvee X_\mathcal{A}, b  \otimes_\mathcal{B} d \rangle \in \langle a, b\rangle \otimes_{\mathcal{A} \times \mathcal{B}} X \rangle \} =$$
 	$$\{ b \otimes_\mathcal{B} d \mid  \bigvee X_\mathcal{A} \in X_\mathcal{A}  \wedge d \in X_\mathcal{B}\} =
 	    b \otimes_\mathcal{B} \{ d \mid \langle \bigvee X_\mathcal{A}, d \rangle \in X \} = b \otimes_\mathcal{B} X_\mathcal{B}$$
@@ -714,7 +737,7 @@ Since $Lex(\mathcal{A},\mathcal{B})$ is a distributive CLM if so are $\mathcal{A
 
 \begin{example}
 	Let us consider the tropical CLM $\mathcal{N}$ of natural numbers with inverse order 
-	(see Remark~\ref{natural}),
+	(see Example~\ref{noLUBs}),
 	and the CLM $Lex(\mathcal{N},\mathcal{N})$. Clearly $C(\mathcal{N}) = \{+\infty\}$. We then have for example
 	that
 	$\langle 3, 6 \rangle \odiv_L \langle 4, 2 \rangle = \bigvee \{\langle x, y \rangle \mid \langle 4 + x, 2 + y \rangle \leq_L \langle 3, 6 \rangle\} = \langle 0,0 \rangle$.
@@ -728,9 +751,9 @@ Indeed, this can be proved in general for POMs. As a shorthand, given a residuat
 and an element $a$, we denote $D(a) = \{ b \mid b \otimes (a \odiv b) = a\}$.
 
 \begin{proposition}\label{def:resBI}
-Let $\mathcal{A}$, $\mathcal{B}$ be residuated POMs with bottom elements $\bot_\mathcal{A}$ and $\bot_\mathcal{B}$.
+Let $\mathcal{A}$, $\mathcal{B}$ be residuated POMs, the latter with bottom element$\bot_\mathcal{B}$.
 %
-Then so is $Lex(\mathcal{A}, \mathcal{B})$ and for any pair $\langle a_1, b_1\rangle, \langle a_2, b_2\rangle \in A \times_L B$
+Then $Lex(\mathcal{A}, \mathcal{B})$ is a residuated POM and for $\langle a_1, b_1\rangle, \langle a_2, b_2\rangle \in A \times_L B$
 we have 
 %\small
 \[
@@ -745,6 +768,9 @@ we have
 	\end{array}
 	\end{cases}
 \]
+If $\mathcal{A}$ is with bottom element $\bot_\mathcal{A}$, then 
+$\langle \bot_\mathcal{A}, \bot_\mathcal{B} \rangle$
+is the bottom element of $Lex(\mathcal{A}, \mathcal{B})$.
 \end{proposition}
 \begin{proof}
 We need to prove that for all $\langle a, b\rangle \in A\times B$ we have
@@ -773,6 +799,8 @@ If $a_1 \odiv_\mathcal{A} \, a_2 \in C(A)$ then $b = \bot_\mathcal{B}$ and we ar
 $a_1 \odiv_\mathcal{A} a_2 \in I(A)$. Then $b\leq_\mathcal{B} b_1 \odiv_\mathcal{B} \, b_2$
 and we are done.
 \end{itemize}
+
+The proof that $\langle \bot_\mathcal{A}, \bot_\mathcal{B} \rangle$ is the bottom element is straightforward.
 \end{proof}
 
 While $\langle \bot_\mathcal{A}, \bot_\mathcal{B} \rangle$ is the bottom element, note that the top element can be 
@@ -824,11 +852,12 @@ a more operational definition. % of such POMs.
 	and $A = I(A) \cup C(A)$.
 \end{proof}
 
-As for the binary product, the top element can be 
-either $\top_\mathcal{A} \cdot \bot^{k-1}_\mathcal{A}$ or $\top^k_\mathcal{A}$,
+Let $\cdot$ denote string concatenation.
+As for the binary product, the top element is 
+either $\top_\mathcal{A} \cdot \bot_\mathcal{A}^{k-1}$ or $\top_\mathcal{A}^k$,
 depending if $\top_\mathcal{A} \in C(\mathcal{A})$ or $\top_\mathcal{A} \in I(\mathcal{A})$.
 %
-We can exploit the result above also to provide a simple characterisation of collapsing elements.
+We exploit the result above to provide a simple characterisation of collapsing elements.
 
 \begin{lemma}
 	Let $\mathcal{A}$ be a POM with bottom element $\bot_\mathcal{A}$.
@@ -900,7 +929,7 @@ and the same for $\gamma$.
 \end{proof}
 
 It then suffices to consider only the cases identified by the proposition above, and
-in the result below we let $s \cdot t$ denotes string concatenation.
+in the result below recall that $s \cdot t$ denotes string concatenation.
 %The key remark for the following propositions is that since in a residuated POM 
 %the $\otimes$ operator is monotone, 
 %we have that $c \leq a \odiv b$ implies $b \otimes c \leq (a \odiv b) \otimes b$.
@@ -908,7 +937,7 @@ in the result below we let $s \cdot t$ denotes string concatenation.
 \begin{theorem}\label{prop:lexiRes}
 	Let $\mathcal{A}$ be a residuated POM with bottom
 	element $\bot_\mathcal{A}$.
-	Then so is $Lex^k(\mathcal{A})$ and for any pair
+	Then $Lex^k(\mathcal{A})$ is a residuated POM and for
 	$s , t \in A^k_L$ we have
 	%\small
 	\[
@@ -920,6 +949,7 @@ in the result below we let $s \cdot t$ denotes string concatenation.
 	\end{array}
 	\end{cases}
 	\]
+with $\bot^k_\mathcal{A}$ the bottom element.
 \end{theorem}
 
 \begin{proof}
@@ -956,6 +986,7 @@ and $t^{\mid 2} \otimes^{k-1}_\mathcal{A} z^{\mid 2} \leq^{k-1}_L s^{\mid 2}$
 implies 
 $t \otimes^k_\mathcal{A} z \leq^k_L s$.
 \end{itemize}
+The proof that $\bot_\mathcal{A}^k$ is the bottom element is straightforward.
 \end{proof}
 
 Note that $\top_{Lex^k(\mathcal{A})} = \top^k_\mathcal{A}$
@@ -1003,30 +1034,30 @@ in $\{\bot_\mathcal{A}\}^\omega$.
 	with $s \otimes^\omega_\mathcal{A} X = \{ s \otimes^\omega_\mathcal{A} t \mid t \in X\}$.
 	
 	We retrace the steps of Proposition~\ref{def:lexBI}, so let $Y = \{ s \otimes^\omega_\mathcal{A} t \mid t \in X\}$.
-	We have that 
-	$(s \otimes^\omega_\mathcal{A} \bigvee X)_1 = s_1 \otimes_\mathcal{A} (\bigvee X)_1 = s_1 \otimes_\mathcal{A} \bigvee X_1
-	= \bigvee s_1 \otimes X_1 =  \bigvee Y_1 = (\bigvee Y)_1$
-	by distributivity of $\otimes_\mathcal{A}$.
-	%
-	If $s_1 \in C(A)$ then $Y_1 \subseteq C(\mathcal{A})$ and thus $Y_2 = \{\bot_\mathcal{A}\}$ and we are done, since 
-	$s \otimes^\omega \bigvee X = (s \otimes_\mathcal{A} \bigvee X)_{\mid 1} \cdot \bot^\omega_\mathcal{A}
-	= (\bigvee Y)_{\mid 1} \cdot  \bot^\omega_\mathcal{A}  = \bigvee Y$.
-	%
-	Otherwise, 
-	let $X2 = \{ t \mid (\bigvee X)_{\mid 1} \cdot t \in X\}$ and note that 
-	$$Y2 = \{ w \mid (\bigvee Y)_{\mid 1} \cdot w \in Y\}
-	= \{ w \mid (s \otimes^\omega_\mathcal{A} \bigvee X)_{\mid 1} \cdot w \in Y \}$$
-	\noindent
-	Now, note that $(\bigvee X)_1 \not \in X_1$ implies $X2 = \emptyset$ as well as, since $s_1$ is cancellative, $Y2 = \emptyset$.
-	If $X2 = Y2 = \emptyset$ we are done, so let us assume that $(\bigvee X)_1 \in X_1$. Then
-%	$$\{ b \otimes_\mathcal{B} z \mid z \in X'_\mathcal{B} \wedge 
-%	      \langle a \otimes_\mathcal{A} \bigvee X_\mathcal{A}, b  \otimes_\mathcal{B} z \rangle \in \langle a, b\rangle \otimes_{\mathcal{A} \times \mathcal{B}} X \rangle \} =$$
-	$$Y2 = \{ s^{\mid 2} \otimes^\omega_\mathcal{A}  z \mid (\bigvee X)_1 \in X_1 \wedge z \in X2 \wedge 
-	       (s \otimes^\omega_\mathcal{A} \bigvee X)_{\mid 1} \cdot (s^{\mid 2} \otimes^\omega_\mathcal{A}  z) \in Y \} =$$
-	$$\{ s^{\mid 2} \otimes^\omega_\mathcal{A} z \mid  (\bigvee X)_1 \in X_1 \wedge z \in X2\} =
-	    s^{\mid 2} \otimes^\omega_\mathcal{A} \{ z \mid (\bigvee X)_{\mid 1} \cdot z \in X \} = s^{\mid 2} \otimes^\omega_\mathcal{A} X2$$
-	\noindent
-	and then we proceed recursively to prove that $\bigvee Y2 = \bigvee s^{\mid 2} \otimes^\omega_\mathcal{A} X2$.
+	By distributivity of $\mathcal{A}$ we have that
+	$(s \otimes^\omega_\mathcal{A} \bigvee X)_1 = s_1 \otimes_\mathcal{A} (\bigvee X)_1 = s_1 \otimes_\mathcal{A} \bigvee X_{\mid 1}
+	= \bigvee s_1 \otimes X_{\mid 1} =  \bigvee Y_{\mid 1} = (\bigvee Y)_1$ and
+	$$Y_2 = \{ s_2 \otimes_\mathcal{A} d \mid (\bigvee Y)_{1} \cdot (s_2 \otimes d) \cdot w \in Y\}
+	= \{  s_2 \otimes d \mid (s_1 \otimes_\mathcal{A} (\bigvee X)_{1}) \cdot (s_2 \otimes_\mathcal{A} d) \cdot w \in Y \}$$
+%
+	If $s_1$ is collapsing then we are done, since $s_2 = \bot_\mathcal{B}$ and $Y_2 \subseteq \{\bot_{A}\}$,
+	thus $s_2 \otimes_\mathcal{A} \bigvee X_1 = 
+	\bigvee Y_2 = \bot_{A}$, and consequenty $w = \bot^\omega$.
+	%even if either $X_\mathcal{B} \neq \emptyset$ or $Y_\mathcal{B} \neq \emptyset$. 
+	Let us assume that $s_2$ in cancellative.
+	Note that $(\bigvee X)_1 \not \in X_{\mid 1}$ implies $(\bigvee X)_2 = \bot_{\mathcal A}$ as well as, 
+	since $a$ is cancellative, $Y_2 = \emptyset$.
+	Thus $(\bigvee X)_2 = \bigvee Y_2 =\bot_\mathcal{B}$, as well as 
+	$w = \bot^\omega$, and we are done.
+	Finally, let us assume that $(\bigvee X)_1 \in X_{\mid 1}$. Then
+	$$Y_2 = \{  s_2 \otimes d \mid (\bigvee X)_1 \in X_{\mid 1} \wedge (s_1 \otimes_\mathcal{A} (\bigvee X)_{1}) \cdot (s_2 \otimes_\mathcal{A} d) \cdot w \in Y \}
+	=  $$
+	$$\{  s_2 \otimes d \mid (\bigvee X)_1 \in X_{\mid 1} \wedge (s_1 \otimes_\mathcal{A} (\bigvee X)_{1}) \cdot (s_2 \otimes_\mathcal{A} d) \in Y _{\mid 2} \}
+	=$$
+	$$\{  s_2 \otimes d \mid \langle (\bigvee X)_1, d \rangle \in X _{\mid 2} \}
+	= s_2 \otimes \{ d \mid \langle (\bigvee X)_1,  d \rangle \in X _{\mid 2} \}$$
+%
+	We finally proceed again by induction and case analysis on $s_2$ and $\bigvee Y_2$.
 \end{proof}
 
 %Next result is instead an adaptation of Theorem~\ref{prop:lexiRes}
