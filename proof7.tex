@@ -1,0 +1,114 @@
+\documentclass[a4paper]{elsarticle}
+
+\usepackage{booktabs} % For formal tables
+\usepackage{amsmath,amssymb,amsthm} 
+\usepackage{todonotes}
+\usepackage{amsfonts}
+\usepackage{algorithm}
+\usepackage[noend]{algpseudocode}
+
+\newtheorem{definition}{Definition}
+\newtheorem{example}{Example}
+\newtheorem{remark}{Remark}
+\newtheorem{lemma}{Lemma}
+\newtheorem{proposition}{Proposition}
+\newtheorem{theorem}{Theorem}
+
+\newcommand{\monop}{\otimes}
+\newcommand{\1}{\mathbf{1}}
+
+
+\floatstyle{plain}
+\newfloat{myalgo}{tbhp}{mya}
+
+\newenvironment{Algorithm}[2][tbh]%
+{\begin{myalgo}[#1]
+		\centering
+		\begin{minipage}{#2}
+			\begin{algorithm}[H]}%
+			{\end{algorithm}
+		\end{minipage}
+\end{myalgo}}
+
+\newcommand{\proc}[1]{\textbf{procedure }\texttt{#1}}
+\newcommand{\func}[1]{\textbf{function }\texttt{#1}}
+\newcommand{\call}[1]{\texttt{#1}}
+\newcommand{\tabul}[1]{\hspace*{#1em}\hspace*{#1em}}
+\newcommand{\mywhile}{\textbf{while}}
+\newcommand{\mydo}{\textbf{do}}
+\newcommand{\myuntil}{\textbf{until}}
+\newcommand{\myswitch}{\textbf{switch}}
+\newcommand{\myif}{\textbf{if}}
+\newcommand{\myendif}{\textbf{endif}}
+\newcommand{\mythen}{\textbf{then}}
+\newcommand{\myelse}{\textbf{else}}
+\newcommand{\myfor}{\textbf{for each}}
+\newcommand{\myrepeat}{\textbf{repeat}}
+
+\newcommand{\myendfor}{\textbf{endfor}}
+\newcommand{\myendwhile}{\textbf{endwhile}}
+\newcommand{\myor}{\textbf{or}}
+\newcommand{\myand}{\textbf{and}}
+\newcommand{\myno}{\textbf{no}}
+\newcommand{\myret}{\textbf{return}}
+\newcommand{\myendf}{\textbf{endfunction }}
+\newcommand{\myendp}{\textbf{endprocedure }}
+
+
+
+\def\odiv{{ \ominus\hspace{-8pt}:}\;}
+\def\odivsmall{{ \ominus\hspace{-7.5pt}:}\;}
+\def\smallodiv{{ \ominus\hspace{-7.45pt}:}\;}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+
+
+
+
+\section*{Appendix}
+\begin{proposition}\label{prop:lexiSLM}
+	Let $\mathcal{A}$ be a finitely distributive SLM (distributive CLM).
+	Then so is $Lex^\omega(\mathcal{A})$
+	and for any finite subset (any subset) $X \subseteq A^\omega_L$ 
+	we have $(\bigvee X)_1 = \bigvee \{ a \mid \langle a \rangle \in X_{\mid 1}\}$
+	and $(\bigvee X)_{i+1} = \bigvee \{ a \mid \langle (\bigvee X)_1, \ldots, (\bigvee X)_i, a \rangle \in X_{\mid i+1}\}$.
+\end{proposition}
+\begin{proof}
+	The proof that $\bigvee X$ of the LUB follows the same steps of the one given in Theorem~\ref{theo:lexiSLM}.
+	For distributivity we need to prove that for all $s \in Lex(\mathcal{A})$ and 
+	$X \subseteq Lex^\omega(\mathcal{A})$ we have $s \otimes^\omega_\mathcal{A} \bigvee X = \bigvee s \otimes^\omega_\mathcal{A} X$, 
+	with $s \otimes^\omega_\mathcal{A} X = \{ s \otimes^\omega_\mathcal{A} t \mid t \in X\}$.
+	
+	We retrace the steps of Proposition~\ref{def:lexBI}, so let $Y = \{ s \otimes^\omega_\mathcal{A} t \mid t \in X\}$.
+	By distributivity of $\mathcal{A}$ we have that
+	$(s \otimes^\omega_\mathcal{A} \bigvee X)_1 = s_1 \otimes_\mathcal{A} (\bigvee X)_1 = s_1 \otimes_\mathcal{A} \bigvee X_{\mid 1}
+	= \bigvee s_1 \otimes X_{\mid 1} =  \bigvee Y_{\mid 1} = (\bigvee Y)_1$ and
+	$$Y_2 = \{ s_2 \otimes_\mathcal{A} d \mid (\bigvee Y)_{1} \cdot (s_2 \otimes d) \cdot w \in Y\}
+	= \{  s_2 \otimes d \mid (s_1 \otimes_\mathcal{A} (\bigvee X)_{1}) \cdot (s_2 \otimes_\mathcal{A} d) \cdot w \in Y \}$$
+	%
+	If $s_1$ is collapsing then we are done, since $s_2 = \bot_\mathcal{B}$ and $Y_2 \subseteq \{\bot_{A}\}$,
+	thus $s_2 \otimes_\mathcal{A} \bigvee X_1 = 
+	\bigvee Y_2 = \bot_{A}$, and consequenty $w = \bot^\omega$.
+	%even if either $X_\mathcal{B} \neq \emptyset$ or $Y_\mathcal{B} \neq \emptyset$. 
+	Let us assume that $s_2$ in cancellative.
+	Note that $(\bigvee X)_1 \not \in X_{\mid 1}$ implies $(\bigvee X)_2 = \bot_{\mathcal A}$ as well as, 
+	since $a$ is cancellative, $Y_2 = \emptyset$.
+	Thus $(\bigvee X)_2 = \bigvee Y_2 =\bot_\mathcal{B}$, as well as 
+	$w = \bot^\omega$, and we are done.
+	Finally, let us assume that $(\bigvee X)_1 \in X_{\mid 1}$. Then
+	$$Y_2 = \{  s_2 \otimes d \mid (\bigvee X)_1 \in X_{\mid 1} \wedge (s_1 \otimes_\mathcal{A} (\bigvee X)_{1}) \cdot (s_2 \otimes_\mathcal{A} d) \cdot w \in Y \}
+	=  $$
+	$$\{  s_2 \otimes d \mid (\bigvee X)_1 \in X_{\mid 1} \wedge (s_1 \otimes_\mathcal{A} (\bigvee X)_{1}) \cdot (s_2 \otimes_\mathcal{A} d) \in Y _{\mid 2} \}
+	=$$
+	$$\{  s_2 \otimes d \mid \langle (\bigvee X)_1, d \rangle \in X _{\mid 2} \}
+	= s_2 \otimes \{ d \mid \langle (\bigvee X)_1,  d \rangle \in X _{\mid 2} \}$$
+	%
+	We finally proceed again by induction and case analysis on $s_2$ and $\bigvee Y_2$.
+\end{proof}
+
+\end{document}
+
