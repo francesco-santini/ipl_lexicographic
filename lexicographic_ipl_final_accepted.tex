@@ -375,13 +375,13 @@ possible solutions, whenever they exist, and in that case the maximal element is
 solution.
 
 \begin{definition}[Residuation]
-	A residuated POM is a 5-tuple $\langle A,$ $\leq, \otimes,  \odiv, \1 \rangle$ such that
+	A residuated POM is a 5-tuple $\langle A,$ $\leq, \otimes,  \mathbin{\odiv} , \1 \rangle$ such that
 	$\langle A, \leq \rangle$ is a PO,  $\langle A, \otimes, \1 \rangle$ is a monoid, and
 	$\mathbin{\odiv} : A \times A \rightarrow A$ is a function such that $\forall a, b, c \in A.\ b \otimes c \leq a \iff c \leq a \mathbin{\odiv} b$.
 \end{definition}
 
-In the following, we will sometimes write $a \odiv X$ and $X \odiv a$
-for the set  $\{a \odiv x \mid x \in X\}$ and  $\{x \odiv a \mid x \in X\}$,
+In the following, we will sometimes write $a \mathbin{\odiv} X$ and $X \mathbin{\odiv}  a$
+for the set  $\{a \mathbin{\odiv}  x \mid x \in X\}$ and  $\{x \mathbin{\odiv}  a \mid x \in X\}$,
 respectively.
 
 \begin{remark}\label{inverse}
@@ -393,8 +393,8 @@ respectively.
 
 	Consider e.g. the CLM $\mathcal{Z} = \langle \mathbb{Z} \cup \{\pm \infty\}, \leq, +, 0 \rangle$
 	of Example~\ref{ex:bipolar}. It is residuated with subtraction as the residuation operator,
-	with $+\infty \odiv +\infty = +\infty$ and  $z \odiv +\infty =  -\infty$ for all $z \in  \mathbb{Z} \cup \{-\infty\}$.
-	It suffices to take $X = \mathbb{Z}$ and $a = +\infty$.
+	with ${+}\infty \mathbin{\odiv} {+}\infty = {+}\infty$ and  $z \mathbin{\odiv} {+}\infty =  {-}\infty$ for all $z \in  \mathbb{Z} \cup \{{-}\infty\}$.
+	It suffices to take $X = \mathbb{Z}$ and $a = {+}\infty$.
 
 	Consider instead the CLM  
 	$\mathcal{N} = \langle \mathbb{N} \cup \{\infty\}, \geq,$ $+, 0 \rangle$.
@@ -402,7 +402,7 @@ respectively.
 	meaning that $m \odiv n = 0$ if $n \in [m, \infty]$, and $m - n$ otherwise,
 	putting $\infty - n = \infty$ for any $n \in \mathbb{N}$.
 %
-	The equality holds for $X \subseteq \{+\infty\}$. If this is not so, than 
+	The equality holds for $X \subseteq \{{+}\infty\}$. If this is not so, than 
 	$\bigvee X \in \mathbb{N}$ and $\bigvee X \odiv a \in \mathbb{N}$,
 	and now the equality follows by case inspection.
 \end{remark}
@@ -410,7 +410,7 @@ respectively.
 \begin{example}
 \label{setCLM}
 Let us consider the powerset CLM $\mathcal{P}$ of Example~\ref{ex:powerset}. 
-Given subsets $A$ and $B$ of $V$, their residuation $A \odiv B$ 
+Given subsets $A$ and $B$ of $V$, their residuation $A \mathbin{\odiv} B$ 
 is the largest $C$ such that $B \cap C \subseteq A$, that is $(V \setminus B) \cup A$. From the point of view
 of the set-theoretical interpretation of Boolean logics, it corresponds to the semantics of the formula $B \rightarrow A$.
 \end{example}
@@ -425,7 +425,7 @@ We can give an order characterisation of the residuation operator.
 
 \begin{lemma}\label{rclm1}
 	Let $\langle A,$ $\leq, \otimes,  \odiv, \1 \rangle$ be a residuated POM with bottom.
-	Then $a \odiv b = \bigvee \{c \mid b \otimes c \leq a\}$ for all $a, b \in A$.
+	Then $a \mathbin{\odiv} b = \bigvee \{c \mid b \otimes c \leq a\}$ for all $a, b \in A$.
 \end{lemma}
 
 In words, the LUB of the (possibly infinite) set 
@@ -466,20 +466,20 @@ We close with a simple lemma relating residuation with the top and the bottom el
 	\label{someProps}
 	Let $\langle A, \leq, \monop, \odiv, \1 \rangle$ be a residuated POM. 
 	If it has the bottom element $\bot$, then it also has the top element $\top$and
-	$\forall a \in A.\ a \odiv \bot = \top$.
+	$\forall a \in A.\ a \mathbin{\odiv} \bot = \top$.
 	%
 	Viceversa, if it has the top element $\top$ then
-	$\forall b \in A.\ \top \odiv b = \top$.
+	$\forall b \in A.\ \top \mathbin{\odiv} b = \top$.
 \end{lemma}
 
 \begin{remark}
 \label{usualNat}
-	Nothing can be stated for $\bot \odiv a$, since there could be elements that are 
-	$\bot$-divisors. Similarly, nothing can be stated for $a \odiv \top$.
+	Nothing can be stated for $\bot \mathbin{\odiv} a$, since there could be elements that are 
+	$\bot$-divisors. Similarly, nothing can be stated for $a \mathbin{\odiv} \top$.
 	Consider e.g. the CLM $\mathcal{P}$ 
-	of Example~\ref{setCLM}: we have $\emptyset \odiv X = V\setminus X$
-	and $X \odiv V = X$; instead, in the CLM $\mathcal{Z}$ of Remark~\ref{inverse}
-	we have $-\infty \odiv n = -\infty = n \odiv +\infty$.
+	of Example~\ref{setCLM}: we have $\emptyset \mathbin{\odiv} X = V\setminus X$
+	and $X \mathbin{\odiv} V = X$; instead, in the CLM $\mathcal{Z}$ of Remark~\ref{inverse}
+	we have ${-}\infty \mathbin{\odiv} n = {-}\infty = n \mathbin{\odiv} {+}\infty$.
 %	$\langle \infty, 3\rangle  \otimes \langle 4, \infty \rangle = \langle \infty,\infty \rangle$. 
 	%
 %see the Cartesian 
@@ -713,8 +713,10 @@ and $X_\mathcal{B} = \{ b \mid \langle \bigvee X_\mathcal{A}, b \rangle \in X\}$
 	Now, $\langle a, b\rangle \otimes_{\mathcal{A} \times \mathcal{B}} X$ is defined as 
 	$Y = \{\langle a \otimes_\mathcal{A}  c,  b \otimes_\mathcal{B}  d \rangle \mid \langle c, d \rangle \in X\}$.
 	By distributivity of $\mathcal{A}$, we have that $\bigvee Y_\mathcal{A} = a \otimes_\mathcal{A} \bigvee X_\mathcal{A}$ and
+	\small
 	$$Y_\mathcal{B} = \{ b \otimes_\mathcal{B} d \mid \langle \bigvee Y_\mathcal{A}, b \otimes_\mathcal{B} d \rangle \in Y\}
 	= \{ b \otimes_\mathcal{B} d \mid \langle a \otimes_\mathcal{A} \bigvee X_\mathcal{A}, b \otimes_\mathcal{B} d \rangle \in \langle a, b\rangle \otimes_{\mathcal{A} \times \mathcal{B}} X \rangle \}$$
+	\normalsize
 	If $a$ is collapsing then we are done, since $b = \bot_\mathcal{B}$ and $Y_\mathcal{B} \subseteq \{\bot_{B}\}$,
 	thus $b \otimes_\mathcal{B} \bigvee X_\mathcal{B} = 
 	\bigvee Y_\mathcal{B} = \bot_{B}$.
@@ -748,7 +750,7 @@ Since $Lex(\mathcal{A},\mathcal{B})$ is a distributive CLM if so are $\mathcal{A
 \end{example}
 
 Indeed, this can be proved in general for POMs. As a shorthand, given a residuated POM 
-and an element $a$, we denote $D(a) = \{ b \mid b \otimes (a \odiv b) = a\}$.
+and an element $a$, we denote $D(a) = \{ b \mid b \otimes (a \mathbin{\odiv} b) = a\}$.
 
 \begin{proposition}\label{def:resBI}
 Let $\mathcal{A}$, $\mathcal{B}$ be residuated POMs, the latter with bottom element$\bot_\mathcal{B}$.
@@ -972,11 +974,11 @@ and we are done.
 \item[$\Leftarrow$]
 Clearly $t_1 \otimes_\mathcal{A} z_1 \leq_\mathcal{A} s_1$ holds.
 If $t_1 \otimes_\mathcal{A} z_1 <_\mathcal{A} s_1$ we are done, so let 
-$t_1 \otimes_\mathcal{A} z_1 = s_1$: it implies $t_1 \in D(s_1)$ and thus either $\delta(s,t)\uparrow$ or $\delta(s,t) > 1$.
+$t_1 \otimes_\mathcal{A} z_1 = s_1$: it implies $t_1 \in D(s_1)$ and thus either $\delta(s,t){\uparrow}$ or $\delta(s,t) > 1$.
 %If $a \in C(\mathcal{A)}$ then 
 %$b = \bot_\mathcal{B}$ and we are done, so let $a \in I(\mathcal{A)}$.
-If $s_1 \odiv_\mathcal{A} t_1 \in C(A)$ then either $\gamma(s,t) \uparrow$ or $\gamma(s,t)=1$
-and we are done, since it implies $\gamma(s,t)\uparrow$ and $\delta(s,t)\uparrow$,
+If $s_1 \odiv_\mathcal{A} t_1 \in C(A)$ then either $\gamma(s,t){\uparrow}$ or $\gamma(s,t)=1$
+and we are done, since it implies $\gamma(s,t){\uparrow}$ and $\delta(s,t){\uparrow}$,
 so let $s_1 \odiv_\mathcal{A} t_1 \in I(A)$.
 We can then repeat the argument recursively on $t^{\mid 2} \otimes^{k-1}_\mathcal{A} z^{\mid 2}$ and
 $s^{\mid 2}$, and we are done,
@@ -1028,36 +1030,7 @@ in $\{\bot_\mathcal{A}\}^\omega$.
          and $(\bigvee X)_{i+1} = \bigvee \{ a \mid \langle (\bigvee X)_1, \ldots, (\bigvee X)_i, a \rangle \in X_{\mid i+1}\}$.
 \end{proposition}
 \begin{proof}
-	The proof that $\bigvee X$ of the LUB follows the same steps of the one given in Theorem~\ref{theo:lexiSLM}.
-	For distributivity we need to prove that for all $s \in Lex(\mathcal{A})$ and 
-	$X \subseteq Lex^\omega(\mathcal{A})$ we have $s \otimes^\omega_\mathcal{A} \bigvee X = \bigvee s \otimes^\omega_\mathcal{A} X$, 
-	with $s \otimes^\omega_\mathcal{A} X = \{ s \otimes^\omega_\mathcal{A} t \mid t \in X\}$.
-	
-	We retrace the steps of Proposition~\ref{def:lexBI}, so let $Y = \{ s \otimes^\omega_\mathcal{A} t \mid t \in X\}$.
-	By distributivity of $\mathcal{A}$ we have that
-	$(s \otimes^\omega_\mathcal{A} \bigvee X)_1 = s_1 \otimes_\mathcal{A} (\bigvee X)_1 = s_1 \otimes_\mathcal{A} \bigvee X_{\mid 1}
-	= \bigvee s_1 \otimes X_{\mid 1} =  \bigvee Y_{\mid 1} = (\bigvee Y)_1$ and
-	$$Y_2 = \{ s_2 \otimes_\mathcal{A} d \mid (\bigvee Y)_{1} \cdot (s_2 \otimes d) \cdot w \in Y\}
-	= \{  s_2 \otimes d \mid (s_1 \otimes_\mathcal{A} (\bigvee X)_{1}) \cdot (s_2 \otimes_\mathcal{A} d) \cdot w \in Y \}$$
-%
-	If $s_1$ is collapsing then we are done, since $s_2 = \bot_\mathcal{B}$ and $Y_2 \subseteq \{\bot_{A}\}$,
-	thus $s_2 \otimes_\mathcal{A} \bigvee X_1 = 
-	\bigvee Y_2 = \bot_{A}$, and consequenty $w = \bot^\omega$.
-	%even if either $X_\mathcal{B} \neq \emptyset$ or $Y_\mathcal{B} \neq \emptyset$. 
-	Let us assume that $s_2$ in cancellative.
-	Note that $(\bigvee X)_1 \not \in X_{\mid 1}$ implies $(\bigvee X)_2 = \bot_{\mathcal A}$ as well as, 
-	since $a$ is cancellative, $Y_2 = \emptyset$.
-	Thus $(\bigvee X)_2 = \bigvee Y_2 =\bot_\mathcal{B}$, as well as 
-	$w = \bot^\omega$, and we are done.
-	Finally, let us assume that $(\bigvee X)_1 \in X_{\mid 1}$. Then
-	$$Y_2 = \{  s_2 \otimes d \mid (\bigvee X)_1 \in X_{\mid 1} \wedge (s_1 \otimes_\mathcal{A} (\bigvee X)_{1}) \cdot (s_2 \otimes_\mathcal{A} d) \cdot w \in Y \}
-	=  $$
-	$$\{  s_2 \otimes d \mid (\bigvee X)_1 \in X_{\mid 1} \wedge (s_1 \otimes_\mathcal{A} (\bigvee X)_{1}) \cdot (s_2 \otimes_\mathcal{A} d) \in Y _{\mid 2} \}
-	=$$
-	$$\{  s_2 \otimes d \mid \langle (\bigvee X)_1, d \rangle \in X _{\mid 2} \}
-	= s_2 \otimes \{ d \mid \langle (\bigvee X)_1,  d \rangle \in X _{\mid 2} \}$$
-%
-	We finally proceed again by induction and case analysis on $s_2$ and $\bigvee Y_2$.
+	The proposition can be proved very similarly to Proposition~\ref{def:lexBI}.
 \end{proof}
 
 %Next result is instead an adaptation of Theorem~\ref{prop:lexiRes}
@@ -1069,9 +1042,9 @@ in $\{\bot_\mathcal{A}\}^\omega$.
 	\[
 	s \odiv^\omega_L t = 	\begin{cases}
 	\begin{array}{lcl}
-	s \odiv^\omega_\mathcal{A} t & & \mbox{if  } \gamma(s,t) \uparrow \wedge \delta(s,t) \uparrow \\
-	(s \odiv^\omega_\mathcal{A} t)_{\mid \delta(s,t)} \cdot \top_{Lex^\omega(\mathcal{A})} & &  \mbox{if  } \gamma(s,t) \uparrow \vee \delta(s,t) < \gamma(s,t) \\
-	(s \odiv^\omega_\mathcal{A} t)_{\mid \gamma(s,t)} \cdot \bot^\omega_\mathcal{A} & & \mbox{if  } \delta(s,t)  \uparrow \vee \delta(s,t) = \gamma(s,t)
+	s \odiv^\omega_\mathcal{A} t & & \mbox{if  } \gamma(s,t){\uparrow} \wedge \delta(s,t){\uparrow} \\
+	(s \odiv^\omega_\mathcal{A} t)_{\mid \delta(s,t)} \cdot \top_{Lex^\omega(\mathcal{A})} & &  \mbox{if  } \gamma(s,t){\uparrow} \vee \delta(s,t) < \gamma(s,t) \\
+	(s \odiv^\omega_\mathcal{A} t)_{\mid \gamma(s,t)} \cdot \bot^\omega_\mathcal{A} & & \mbox{if  } \delta(s,t){\uparrow} \vee \delta(s,t) = \gamma(s,t)
 	\end{array}
 	\end{cases}
 	\]
@@ -1128,6 +1101,41 @@ The research was partially supported by the MIUR PRIN 2017FTXR7S ``IT-MaTTerS'' 
 
 \bibliographystyle{elsarticle-num}
 \bibliography{main}
+
+\section*{Appendix}
+\begin{proof}
+	The proof that $\bigvee X$ of the LUB follows the same steps of the one given in Theorem~\ref{theo:lexiSLM}.
+	For distributivity we need to prove that for all $s \in Lex(\mathcal{A})$ and 
+	$X \subseteq Lex^\omega(\mathcal{A})$ we have $s \otimes^\omega_\mathcal{A} \bigvee X = \bigvee s \otimes^\omega_\mathcal{A} X$, 
+	with $s \otimes^\omega_\mathcal{A} X = \{ s \otimes^\omega_\mathcal{A} t \mid t \in X\}$.
+	
+	We retrace the steps of Proposition~\ref{def:lexBI}, so let $Y = \{ s \otimes^\omega_\mathcal{A} t \mid t \in X\}$.
+	By distributivity of $\mathcal{A}$ we have that
+	$(s \otimes^\omega_\mathcal{A} \bigvee X)_1 = s_1 \otimes_\mathcal{A} (\bigvee X)_1 = s_1 \otimes_\mathcal{A} \bigvee X_{\mid 1}
+	= \bigvee s_1 \otimes X_{\mid 1} =  \bigvee Y_{\mid 1} = (\bigvee Y)_1$ and
+	$$Y_2 = \{ s_2 \otimes_\mathcal{A} d \mid (\bigvee Y)_{1} \cdot (s_2 \otimes d) \cdot w \in Y\}
+	= \{  s_2 \otimes d \mid (s_1 \otimes_\mathcal{A} (\bigvee X)_{1}) \cdot (s_2 \otimes_\mathcal{A} d) \cdot w \in Y \}$$
+	%
+	If $s_1$ is collapsing then we are done, since $s_2 = \bot_\mathcal{B}$ and $Y_2 \subseteq \{\bot_{A}\}$,
+	thus $s_2 \otimes_\mathcal{A} \bigvee X_1 = 
+	\bigvee Y_2 = \bot_{A}$, and consequenty $w = \bot^\omega$.
+	%even if either $X_\mathcal{B} \neq \emptyset$ or $Y_\mathcal{B} \neq \emptyset$. 
+	Let us assume that $s_2$ in cancellative.
+	Note that $(\bigvee X)_1 \not \in X_{\mid 1}$ implies $(\bigvee X)_2 = \bot_{\mathcal A}$ as well as, 
+	since $a$ is cancellative, $Y_2 = \emptyset$.
+	Thus $(\bigvee X)_2 = \bigvee Y_2 =\bot_\mathcal{B}$, as well as 
+	$w = \bot^\omega$, and we are done.
+	Finally, let us assume that $(\bigvee X)_1 \in X_{\mid 1}$. Then
+	$$Y_2 = \{  s_2 \otimes d \mid (\bigvee X)_1 \in X_{\mid 1} \wedge (s_1 \otimes_\mathcal{A} (\bigvee X)_{1}) \cdot (s_2 \otimes_\mathcal{A} d) \cdot w \in Y \}
+	=  $$
+	$$\{  s_2 \otimes d \mid (\bigvee X)_1 \in X_{\mid 1} \wedge (s_1 \otimes_\mathcal{A} (\bigvee X)_{1}) \cdot (s_2 \otimes_\mathcal{A} d) \in Y _{\mid 2} \}
+	=$$
+	$$\{  s_2 \otimes d \mid \langle (\bigvee X)_1, d \rangle \in X _{\mid 2} \}
+	= s_2 \otimes \{ d \mid \langle (\bigvee X)_1,  d \rangle \in X _{\mid 2} \}$$
+	%
+	We finally proceed again by induction and case analysis on $s_2$ and $\bigvee Y_2$.
+\end{proof}
+
 \end{document}
 
 \section{Roba da riciclo}
@@ -1402,4 +1410,7 @@ order on its tuples, which is a residuated POM as well.
 %Is the proposition true? Also, its proof above would be simplified should $I(A)$ 
 %be closed with respect to residuation.
 %\end{remark}
+
+
+
 \end{document}
