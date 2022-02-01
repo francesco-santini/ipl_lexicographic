@@ -78,12 +78,16 @@
 	and $(\bigvee X)_{i+1} = \bigvee \{ a \mid \langle (\bigvee X)_1, \ldots, (\bigvee X)_i, a \rangle \in X_{\mid i+1}\}$.
 \end{proposition}
 \begin{proof}
-	The proof that $\bigvee X$ of the LUB follows the same steps of the one given in Theorem~\ref{theo:lexiSLM}.
+	The proof that $\bigvee X$ is the LUB follows the same steps of the one given in 
+	Theorem~1.
+	%\ref{theo:lexiSLM}.
 	For distributivity we need to prove that for all $s \in Lex(\mathcal{A})$ and 
 	$X \subseteq Lex^\omega(\mathcal{A})$ we have $s \otimes^\omega_\mathcal{A} \bigvee X = \bigvee s \otimes^\omega_\mathcal{A} X$, 
 	with $s \otimes^\omega_\mathcal{A} X = \{ s \otimes^\omega_\mathcal{A} t \mid t \in X\}$.
 	
-	We retrace the steps of Proposition~\ref{def:lexBI}, so let $Y = \{ s \otimes^\omega_\mathcal{A} t \mid t \in X\}$.
+	We retrace the steps of Proposition~2,
+	%\ref{def:lexBI}, 
+	so let $Y = \{ s \otimes^\omega_\mathcal{A} t \mid t \in X\}$.
 	By distributivity of $\mathcal{A}$ we have that
 	$(s \otimes^\omega_\mathcal{A} \bigvee X)_1 = s_1 \otimes_\mathcal{A} (\bigvee X)_1 = s_1 \otimes_\mathcal{A} \bigvee X_{\mid 1}
 	= \bigvee s_1 \otimes X_{\mid 1} =  \bigvee Y_{\mid 1} = (\bigvee Y)_1$ and

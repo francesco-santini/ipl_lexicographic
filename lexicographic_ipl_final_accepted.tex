@@ -175,7 +175,7 @@ doing the same for the lexicographic order is not, and it cannot be directly ach
 The solution advanced in~\cite{GadducciHMW13,valuation} is to drop some preference values from the domain carrier of the set of tuples. 
 %
 The present work builds on
-this proposal by dealing with sets of preferences that form residuated monoids, systematising and extending the case of infinite tuples tackled in~\cite{sca} 
+that proposal by dealing with sets of preferences that form residuated monoids, systematising and extending the case of infinite tuples tackled in~\cite{sca} 
 to tuples of any length.
 
 
@@ -402,7 +402,7 @@ respectively.
 	meaning that $m \odiv n = 0$ if $n \in [m, \infty]$, and $m - n$ otherwise,
 	putting $\infty - n = \infty$ for any $n \in \mathbb{N}$.
 %
-	The equality holds for $X \subseteq \{{+}\infty\}$. If this is not so, than 
+	The equality holds for $X \subseteq \{{+}\infty\}$. If this is not so, then 
 	$\bigvee X \in \mathbb{N}$ and $\bigvee X \odiv a \in \mathbb{N}$,
 	and now the equality follows by case inspection.
 \end{remark}
@@ -506,7 +506,7 @@ is to restrict the carrier of the monoid.
 	$\{ c \mid \forall a, b \in A.\ a \otimes c = b \otimes c \implies a = b \}$.
 \end{definition}
 
-We  recall a well-known fact.
+We  now state a well-known fact. 
 % ($C(A)$ is the set of collapsing elements of $A$).
 
 \begin{lemma}
@@ -519,6 +519,7 @@ We  recall a well-known fact.
 
 Explicitly, $C(A) = \{ c \mid \exists a, b \in A.\ a \neq b \wedge a \otimes c = b \otimes c\}$.
 %
+Recall that a semigroup is just a monoid possibly without the identity element.
 Being an ideal means that $\forall a \in A, c \in C( A).\ a \otimes c \in C(A)$,
 and being prime further states that 
 $\forall a, b \in A.\ a\otimes b \in C( A) \implies a \in C(A) \vee b \in C(A)$.
@@ -657,17 +658,23 @@ introduced in~\cite{GadducciHMW13}. Given a partial order $\leq$ we denote by $<
 partial order: the former can be recovered from the latter by closing with respect to reflexivity.
 
 \begin{proposition}\label{prop:lexBI}
-	Let $\mathcal{A}$, $\mathcal{B}$ be POMs with bottom elements $\bot_\mathcal{A}$ and $\bot_\mathcal{B}$.
+	Let $\mathcal{A}$, $\mathcal{B}$ be POMs, the latter with bottom element $\bot_\mathcal{B}$.
+% with bottom elements $\bot_\mathcal{A}$ and $\bot_\mathcal{B}$.
 	%
 	Then the tuple $Lex(\mathcal{A}, \mathcal{B}) = 
 	\langle A \times_L B, \leq_L, \monop_{\mathcal{A} \times \mathcal{B}}, \1_{\mathcal{A} \times \mathcal{B}} \rangle$
-	is a POM with bottom element $\bot_{\mathcal{A} \times \mathcal{B}}$,
+	is a POM,
+	% with bottom element $\bot_{\mathcal{A} \times \mathcal{B}}$,
 	where $A \times_L B = I(A) \times B \cup C(A) \times \{\bot_\mathcal{B}\}$ and
 %	\begin{itemize}
 		%\item 
 		$\langle a_1, b_1\rangle <_L \langle a_2, b_2\rangle$ if $a_1 <_\mathcal{A} a_2$ or $a_1 = b_1$ 
 		and  $a_2 <_\mathcal{B} b_2$.
 %	\end{itemize}
+%
+If $\mathcal{A}$ is with bottom element $\bot_\mathcal{A}$, then 
+%$\langle \bot_\mathcal{A}, \bot_\mathcal{B} \rangle$
+$\bot_{\mathcal{A} \times \mathcal{B}}$ is the bottom element of $Lex(\mathcal{A}, \mathcal{B})$.
 \end{proposition}
 
 \begin{proof}
@@ -686,8 +693,8 @@ while instead $\leq_{\mathcal{A} \times \mathcal{B}}$ is contained in $\leq_L$.
 %simpler the definition of the order.
 
 \begin{lemma}
-Let $\mathcal{A}$, $\mathcal{B}$ be POMs with bottom elements $\bot_\mathcal{A}$ and $\bot_\mathcal{B}$, 
-respectively.
+Let $\mathcal{A}$, $\mathcal{B}$ be POMs, the latter with bottom element $\bot_\mathcal{B}$.
+%
 Then $C(A \times_L B) = I(A) \times C(B) \cup C(A) \times \{\bot_\mathcal{B}\}$.
 \end{lemma}
 
@@ -749,11 +756,11 @@ Since $Lex(\mathcal{A},\mathcal{B})$ is a distributive CLM if so are $\mathcal{A
 	Note that we would have obtained $\langle 0, 4 \rangle$ for the CLM $\mathcal{N}^2$ of the Cartesian product.
 \end{example}
 
-Indeed, this can be proved in general for POMs. As a shorthand, given a residuated POM 
+Indeed, the property holds in general for POMs. As a shorthand, given a residuated POM 
 and an element $a$, we denote $D(a) = \{ b \mid b \otimes (a \mathbin{\odiv} b) = a\}$.
 
 \begin{proposition}\label{def:resBI}
-Let $\mathcal{A}$, $\mathcal{B}$ be residuated POMs, the latter with bottom element$\bot_\mathcal{B}$.
+Let $\mathcal{A}$, $\mathcal{B}$ be residuated POMs, the latter with bottom element $\bot_\mathcal{B}$.
 %
 Then $Lex(\mathcal{A}, \mathcal{B})$ is a residuated POM and for $\langle a_1, b_1\rangle, \langle a_2, b_2\rangle \in A \times_L B$
 we have 
@@ -770,9 +777,9 @@ we have
 	\end{array}
 	\end{cases}
 \]
-If $\mathcal{A}$ is with bottom element $\bot_\mathcal{A}$, then 
-$\langle \bot_\mathcal{A}, \bot_\mathcal{B} \rangle$
-is the bottom element of $Lex(\mathcal{A}, \mathcal{B})$.
+%If $\mathcal{A}$ is with bottom element $\bot_\mathcal{A}$, then 
+%$\langle \bot_\mathcal{A}, \bot_\mathcal{B} \rangle$
+%is the bottom element of $Lex(\mathcal{A}, \mathcal{B})$.
 \end{proposition}
 \begin{proof}
 We need to prove that for all $\langle a, b\rangle \in A\times B$ we have
@@ -801,8 +808,8 @@ If $a_1 \odiv_\mathcal{A} \, a_2 \in C(A)$ then $b = \bot_\mathcal{B}$ and we ar
 $a_1 \odiv_\mathcal{A} a_2 \in I(A)$. Then $b\leq_\mathcal{B} b_1 \odiv_\mathcal{B} \, b_2$
 and we are done.
 \end{itemize}
-
-The proof that $\langle \bot_\mathcal{A}, \bot_\mathcal{B} \rangle$ is the bottom element is straightforward.
+%
+%The proof that $\langle \bot_\mathcal{A}, \bot_\mathcal{B} \rangle$ is the bottom element is straightforward.
 \end{proof}
 
 While $\langle \bot_\mathcal{A}, \bot_\mathcal{B} \rangle$ is the bottom element, note that the top element can be 
@@ -915,8 +922,10 @@ and the same for $\gamma$.
 %so is its Cartesian product $A^k$, with division defined point-wise.
 
 \begin{lemma}\label{limit}
-	Let $\langle A, \leq, \monop, \odiv, \1 \rangle$
-	be a residuated POM with bottom and $s, t \in A^k_L$. Then 
+	%Let $\langle A, \leq, \monop, \odiv, \1 \rangle$
+	%be a residuated POM with bottom 
+	Let $\mathcal{A}$ be a residuated POM with bottom
+	and $s, t \in A^k_L$. Then 
 	%either $\delta(a,b) = k+1$ or 
 	$\delta(s,t) \leq \gamma(s,t)$
 	whenever both 	$\delta(s,t)$ and $\gamma(s,t)$
@@ -951,7 +960,7 @@ in the result below recall that $s \cdot t$ denotes string concatenation.
 	\end{array}
 	\end{cases}
 	\]
-with $\bot^k_\mathcal{A}$ the bottom element.
+%with $\bot^k_\mathcal{A}$ the bottom element.
 \end{theorem}
 
 \begin{proof}
@@ -988,7 +997,7 @@ and $t^{\mid 2} \otimes^{k-1}_\mathcal{A} z^{\mid 2} \leq^{k-1}_L s^{\mid 2}$
 implies 
 $t \otimes^k_\mathcal{A} z \leq^k_L s$.
 \end{itemize}
-The proof that $\bot_\mathcal{A}^k$ is the bottom element is straightforward.
+%The proof that $\bot_\mathcal{A}^k$ is the bottom element is straightforward.
 \end{proof}
 
 Note that $\top_{Lex^k(\mathcal{A})} = \top^k_\mathcal{A}$
@@ -1029,10 +1038,13 @@ in $\{\bot_\mathcal{A}\}^\omega$.
          we have $(\bigvee X)_1 = \bigvee \{ a \mid \langle a \rangle \in X_{\mid 1}\}$
          and $(\bigvee X)_{i+1} = \bigvee \{ a \mid \langle (\bigvee X)_1, \ldots, (\bigvee X)_i, a \rangle \in X_{\mid i+1}\}$.
 \end{proposition}
-\begin{proof}
-	The proposition can be proved very similarly to Proposition~\ref{def:lexBI}.
-\end{proof}
 
+%\begin{proof}
+%	The proposition can be proved by retracing the steps of Proposition~\ref{def:lexBI}.
+%\end{proof}
+
+	The proof that $\bigvee X$ is the LUB retrace the steps of the one given in 
+	Theorem~\ref{theo:lexiSLM}, while for distributivity we retrace those in Proposition~\ref{def:lexBI}.
 %Next result is instead an adaptation of Theorem~\ref{prop:lexiRes}
 
 \begin{proposition}\label{prop:lexiResOmega}
