@@ -429,7 +429,7 @@ We can give an order characterisation of the residuation operator.
 \end{lemma}
 
 In words, the LUB of the (possibly infinite) set 
-$\{c \mid b \otimes c \leq a\}$ exists and is equal to $a \odiv b$.
+$\{c \mid b \otimes c \leq a\}$ exists and is equal to $a \mathbin{\odiv} b$.
 %
 In fact, residuation implies distributivity (see~\cite[Lemma 2.2]{ipl}).
 
@@ -902,8 +902,8 @@ First, we need some additional definitions and technical lemmas.
 	be a residuated POM with bottom and $s, t \in A^k_L$. Then 
 	%		\item $\beta(a) = min\{ i \mid a_i \in C(A)\}$
 	we define the partial functions 
-	$\gamma(s, t) = \min\{ i \mid s_i \odiv t_i \in C(A)\}$
-	and $\delta(s, t) = \min\{ i \mid (s_i \odiv t_i) \otimes s_i < t_i\}$.
+	$\gamma(s, t) = \min\{ i \mid s_i \mathbin{\odiv} t_i \in C(A)\}$
+	and $\delta(s, t) = \min\{ i \mid (s_i \mathbin{\odiv} t_i) \otimes s_i < t_i\}$.
 %	with the convention that the result is $k+1$ whenever the set if empty.
 \end{definition}
 
@@ -926,7 +926,7 @@ and the same for $\gamma$.
 	If $\gamma(s,t) < \delta(s,t) \leq k$ then 
 	$t_{\gamma(s,t)} \otimes (s_{\gamma(s,t)} \odiv t_{\gamma(s,t)})  = s_{\gamma(s,t)}$.
 	Since $C(A)$ is an ideal, it holds that $s_{\gamma(s,t)} \in C(A)$, 
-	which in turn implies that $t_{\delta(s,t)} \otimes (s_{\delta(s,t)} \odiv t_{\delta(s,t)}) < s_{\delta(s,t)} = \bot$,
+	which in turn implies that $t_{\delta(s,t)} \otimes (s_{\delta(s,t)} \mathbin{\odiv} t_{\delta(s,t)}) < s_{\delta(s,t)} = \bot$,
 	hence a contradiction. 
 \end{proof}
 
