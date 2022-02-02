@@ -274,7 +274,7 @@ $\bigvee A$ corresponds to the top of the order, denoted as $\top$.
 	$\langle A, \leq \rangle$ is a PO and $\langle A, \monop, \1 \rangle$ a monoid.
 	%
 	A semi-lattice monoid (SLM) and a complete lattice monoid (CLM) are 
-	POMs such that the underlying PO is a SL, a CL respectively.
+	POMs such that the underlying PO is a SL and a CL respectively.
 \end{definition}
 
 For ease of notation, we use infix operators: $a \monop b$ stands for $\monop(a,b)$.
@@ -436,7 +436,7 @@ In fact, residuation implies distributivity (see~\cite[Lemma 2.2]{ipl}).
 \begin{lemma}\label{rclm2}
 	Let $\langle A, \leq, \monop, \odiv, \1 \rangle$ be a residuated POM. 
 	Then $\monop$ is monotone.
-	If additionally it is a SLM (CLM), then it is finitely distributive
+	If  it is additionally a SLM (CLM), then it is finitely distributive
 	(distributive).
 \end{lemma}
 %\begin{proof}
@@ -616,7 +616,7 @@ Explicitly, $I'(A) = \{ c \mid \forall a, b \in A.\ a \otimes c = b \otimes c \i
 The definitions we encounter in the next section 
 could then be rephrased using 
 $I'(A)$ and $C'(A)$ with minimal adjustments, thus confirming the proposal
-in~\cite{GadducciHMW13}.\footnote{And in fact, the Lemma~\ref{lemma:six} holds also for 
+in~\cite{GadducciHMW13}.\footnote{And in fact,  Lemma~\ref{lemma:six} holds also for 
 	a property that is weaker than monotonicity: it suffices that 
 	$\forall a, b, c.\ a \leq b \implies (a \otimes c \leq b \otimes c) \vee (b \otimes c \leq a \otimes c)$.
 }
@@ -1076,7 +1076,7 @@ Despite the practical relevance of these orders, the valued structures for const
 such as the pioneering~\cite{jacm97,schiex}, cannot straightforwardly deal 
 with such a class of preferences, and their modelling required some ingenuity~\cite{GadducciHMW13,valuation}. 
 %
-Generalising such proposals by using residuated monoids~\cite{residuation1} allows the extension of the classical solving algorithms 
+Generalising such proposals by using residuated monoids~\cite{residuation1} allows for the extension of the classical solving algorithms 
 that need preference removal, such as arc consistency, where values need to be moved from binary to unary constraints~\cite{ipl}.
 %
 The paper shows that the resolution techniques devised for this richer framework can tackle also lexicographic orders.
